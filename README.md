@@ -1,15 +1,20 @@
 # Practice WASM & Leptos
 
-
-
 ## How to develop
 
 ### Start
 
-To start, run the following command and open `localhost:8080` in your browser:
-```shell
-trunk serve --open
-```
+Make sure you have run:
+
+  ```shell
+  cargo install trunk leptosfmt
+  ```
+
+To start, run the following command (and open `localhost:8080` in your browser, if it doesn't open automatically):
+
+  ```shell
+  trunk serve --open
+  ```
 
 ### Using Nix Flakes, JetBrains RustRover & Direnv
 
@@ -33,9 +38,9 @@ Upgrade the flake by running `nix flake update` in the repository's base directo
 
 ### Reminders
 
-
 #### Run configurations
 
-- Create a run configuration with environment variable `RUST_LOG=procedural_generation_2=debug` for debug logs
-- Create a run configuration with environment variable
-  `RUST_LOG=procedural_generation_2=debug,procedural_generation_2::generation::object=trace` to add WFC trace logs too
+- Run formatter with:
+    ```shell
+    leptosfmt ./**/*.rs
+    ```

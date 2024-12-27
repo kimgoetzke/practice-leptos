@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.button-standard {
+    @apply rounded-lg m-2 p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:bg-nord13 hover:text-nord3;
+}
+
+@keyframes jump {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+@layer base {
+    :root {
+        --foreground: #2E3440;
+        --background: #D8DEE9;
+        --radius: 0.5rem;
+    }
+}
