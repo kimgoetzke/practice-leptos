@@ -3,16 +3,61 @@
 @tailwind utilities;
 
 .button-standard {
-    @apply rounded-lg m-2 p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:bg-nord13 hover:text-nord3;
+    @apply rounded-lg my-2 p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:bg-nord13 hover:text-nord3;
 }
 
-@keyframes jump {
-    0%,
-    100% {
-        transform: translateY(0);
+body {
+    @apply bg-nord0 h-screen flex flex-col;
+}
+
+nav {
+    @apply p-4 text-nord4 flex flex-row;
+}
+
+.navbar-item {
+    @apply mr-6 text-center content-center text-xl rounded-xl transform transition-all duration-200 hover:bg-nord1 hover:font-bold flex-initial w-20 h-10;
+}
+
+main {
+    @apply p-6 flex-grow;
+}
+
+.centered-layout {
+    @apply flex flex-col h-full items-center justify-center;
+}
+
+h1 {
+    @apply text-6xl text-nord4 box-decoration-clone rounded-sm bg-gradient-to-r from-nord8 via-nord9 to-nord10 p-3;
+}
+
+h2 {
+    @apply text-4xl text-nord9 pt-2 pb-4;
+}
+
+h3 {
+    @apply text-2xl text-nord4 underline decoration-nord8 py-2;
+}
+
+p {
+    @apply text-nord6;
+}
+
+.typewriter h1 {
+    overflow: hidden;
+    border-right: .1em solid #D08770;
+    min-height: 3.75rem;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .1em;
+    animation: typewriter-caret .75s step-end infinite;
+}
+
+@keyframes typewriter-caret {
+    from, to {
+        border-color: transparent
     }
     50% {
-        transform: translateY(-25px);
+        border-color: #D08770;
     }
 }
 
