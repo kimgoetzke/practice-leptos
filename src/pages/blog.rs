@@ -1,12 +1,13 @@
-use leptos::attr::Datetime;
 use leptos::prelude::*;
 use leptos::web_sys::js_sys::Date;
 
+#[derive(Clone)]
 struct BlogPost {
   title: String,
   content: String,
   tags: Vec<String>,
   created_at: f64,
+  image: Option<String>,
 }
 
 #[component]
@@ -14,15 +15,31 @@ pub(crate) fn Blog() -> impl IntoView {
   let posts = vec![
     BlogPost {
       title: "Hello, world!".to_string(),
-      content: "This is a blog post.".to_string(),
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.".to_string(),
       tags: vec!["hello".to_string(), "world".to_string()],
       created_at: Date::now(),
+      image: Some("/assets/image1.png".to_string()),
     },
     BlogPost {
       title: "Another post".to_string(),
       content: "This is another blog post.".to_string(),
       tags: vec!["another".to_string(), "post".to_string()],
       created_at: Date::now(),
+      image: Some("/assets/image2.png".to_string()),
+    },
+    BlogPost {
+      title: "And the third one".to_string(),
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.".to_string(),
+      tags: vec!["hello".to_string(), "world".to_string()],
+      created_at: Date::now(),
+      image: None,
+    },
+    BlogPost {
+      title: "Post #4".to_string(),
+      content: "This is a short blog post.".to_string(),
+      tags: vec!["hello".to_string(), "world".to_string()],
+      created_at: Date::now(),
+      image: Some("/assets/image3.png".to_string()),
     },
   ];
   let (count, set_count) = signal(0);
@@ -31,15 +48,16 @@ pub(crate) fn Blog() -> impl IntoView {
     <div>
       <h2>Blog</h2>
       <p class="pb-6">Welcome to the blog!</p>
-
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {move || {
+          let posts = posts.clone();
           posts
-            .iter()
+            .into_iter()
             .map(|post| {
               view! {
                 <div class="p-4 rounded-lg shadow-md transition hover:shadow-lg bg-nord6">
                   <h4 class="mb-2 text-xl font-semibold text-nord0">{post.title.clone()}</h4>
+                  {move || post.image.as_ref().map(|img| view! { <img class="float-right" src=img.clone() /> })}
                   <p class="mb-4 text-nord0">{post.content.clone()}</p>
                   <p class="mb-2 text-sm text-nord2">
                     <strong>"Tags: "</strong>
