@@ -4,10 +4,10 @@ use std::time::Duration;
 #[component]
 pub(crate) fn Home() -> impl IntoView {
   let text = vec![
-    "Hi there...",
     "Thanks for visiting.",
     "It's great to see you here.",
-    "How are you?",
+    "How are you today?",
+    "I hope you're happy!",
     "Seen the menu above?",
     "Don't be shy, click around!",
   ]
@@ -18,8 +18,10 @@ pub(crate) fn Home() -> impl IntoView {
   animate_text(text, set_current_text);
 
   view! {
-    <div class="centered-layout typewriter">
-      <h1>{move || current_text.get()}</h1>
+    <div class="centered-layout">
+      <h1>Welcome!</h1>
+      <div class="p-4"></div>
+      <div class="typewriter">{' '}<p>{move || current_text.get()}</p></div>
     </div>
   }
 }

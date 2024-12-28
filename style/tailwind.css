@@ -39,17 +39,23 @@ h3 {
 }
 
 p {
-    @apply text-nord6;
+    @apply text-nord6 text-lg;
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: .1em solid #D08770;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typewriter-caret .75s step-end infinite;
 }
 
 .typewriter h1 {
-    overflow: hidden;
-    border-right: .1em solid #D08770;
     min-height: 3.75rem;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .1em;
-    animation: typewriter-caret .75s step-end infinite;
+}
+
+.typewriter p {
+    min-height: 1.75rem;
 }
 
 @keyframes typewriter-caret {
