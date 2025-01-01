@@ -26,6 +26,7 @@ fn App() -> impl IntoView {
         <Routes fallback=|| NotFound>
           <Route path=path!("/") view=Home />
           <Route path=path!("/blog") view=Blog />
+          <Route path=path!("/blog/:id") view=Post />
         </Routes>
       </main>
     </Router>

@@ -31,7 +31,7 @@ h1 {
 }
 
 h2 {
-    @apply text-4xl text-nord9 pt-2 pb-4;
+    @apply text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-nord8 via-nord9 to-nord10  pt-2 pb-4;
 }
 
 h3 {
