@@ -1,5 +1,8 @@
 use leptos::prelude::*;
 use std::time::Duration;
+use leptos::wasm_bindgen::prelude::Closure;
+use leptos::wasm_bindgen::JsCast;
+use leptos::web_sys::Event;
 use leptos_use::use_interval_fn;
 use crate::components::*;
 
@@ -16,7 +19,10 @@ pub(crate) fn Home() -> impl IntoView {
   .into_iter()
   .map(String::from)
   .collect::<Vec<String>>();
+  let (has_scrolled, set_has_scrolled) = signal(false);
   let (current_text, set_current_text) = signal(String::new());
+
+  update_has_scrolled(set_has_scrolled);
   animate_text(text, set_current_text);
 
   view! {
@@ -25,9 +31,11 @@ pub(crate) fn Home() -> impl IntoView {
         <h1>"Welcome!"</h1>
         <div class="p-4"></div>
         <div class="typewriter">{' '}<p class="font-retro">{move || current_text.get()}</p></div>
-        <div class="bouncing-arrow">
-          <lucide_leptos::ArrowDown color="#88C0D0" size=48 />
-        </div>
+        <Show when=move || !has_scrolled.get() fallback=|| ()>
+          <div class="bouncing-arrow">
+            <lucide_leptos::ArrowDown color="#88C0D0" size=48 />
+          </div>
+        </Show>
       </section>
       <section class="content-section">
         <h2>"Work experience"</h2>
@@ -68,6 +76,21 @@ pub(crate) fn Home() -> impl IntoView {
       </section>
     </div>
   }
+}
+
+fn update_has_scrolled(set_has_scrolled: WriteSignal<bool>) {
+  Effect::new(move |_| {
+    let on_scroll = move |_| {
+      let scroll_y = window().scroll_y().unwrap_or(0.0);
+      set_has_scrolled.set(scroll_y > 10.0);
+    };
+
+    let closure = Closure::wrap(Box::new(on_scroll) as Box<dyn FnMut(Event)>);
+    window()
+      .add_event_listener_with_callback("scroll", closure.as_ref().unchecked_ref())
+      .unwrap();
+    closure.forget();
+  });
 }
 
 fn animate_text(text: Vec<String>, set_current_text: WriteSignal<String>) {
