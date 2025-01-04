@@ -84,14 +84,6 @@ span.tag {
 }
 
 @font-face {
-    font-family: 'mg';
-    /*noinspection CssUnknownTarget*/
-    src: url('/monogram.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'm5';
     /*noinspection CssUnknownTarget*/
     src: url('/m5x7.ttf') format('truetype');

@@ -33,7 +33,6 @@ module.exports = {
                 'nord15': '#B48EAD',
             },
             fontFamily: {
-                mg: ['monogram', 'sans-serif'],
                 m5: ['m5x7', 'sans-serif'],
                 retro: ['RETRO_SPACE_INV', 'sans-serif'],
             },
