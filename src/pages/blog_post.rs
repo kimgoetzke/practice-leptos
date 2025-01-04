@@ -105,10 +105,10 @@ pub(crate) fn Post() -> impl IntoView {
               </div>
               <h2>{post.title.clone()}</h2>
               <p>{post.content.clone()}</p>
-              <p class="py-6 text-sm text-nord3">
+              <p class="pt-6 pb-3 text-2xl text-nord3">
                 {post.tags.iter().map(|tag| view! { <Tag tag=tag.clone() /> }).collect::<Vec<_>>()}
               </p>
-              <p class="text-sm text-nord3">
+              <p class="text-2xl font-m5 text-nord3">
                 <strong>"Created at: "</strong>
                 {formatted_date}
               </p>
