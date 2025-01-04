@@ -98,19 +98,21 @@ pub(crate) fn Post() -> impl IntoView {
         let date = Date::new(&JsValue::from_f64(post.created_at));
         let formatted_date = format!("{}", date.to_locale_date_string("en-GB", &JsValue::undefined()));
         view! {
-          <div>
-            <div class="flex overflow-hidden justify-center items-center mb-6 max-h-96 rounded-xl">
-              {post.image.as_ref().map(|img| view! { <img class="" src=img.clone() /> })}
+          <div class="flex justify-center">
+            <div class="max-w-screen-2xl">
+              <div class="flex overflow-hidden justify-center items-center mb-6 max-h-96 rounded-xl">
+                {post.image.as_ref().map(|img| view! { <img class="" src=img.clone() /> })}
+              </div>
+              <h2>{post.title.clone()}</h2>
+              <p>{post.content.clone()}</p>
+              <p class="py-6 text-sm text-nord3">
+                {post.tags.iter().map(|tag| view! { <Tag tag=tag.clone() /> }).collect::<Vec<_>>()}
+              </p>
+              <p class="text-sm text-nord3">
+                <strong>"Created at: "</strong>
+                {formatted_date}
+              </p>
             </div>
-            <h2>{post.title.clone()}</h2>
-            <p>{post.content.clone()}</p>
-            <p class="py-6 text-sm text-nord3">
-              {post.tags.iter().map(|tag| view! { <Tag tag=tag.clone() /> }).collect::<Vec<_>>()}
-            </p>
-            <p class="text-sm text-nord3">
-              <strong>"Created at: "</strong>
-              {formatted_date}
-            </p>
           </div>
         }
       }}

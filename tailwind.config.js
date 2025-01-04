@@ -32,6 +32,11 @@ module.exports = {
                 'nord14': '#A3BE8C',
                 'nord15': '#B48EAD',
             },
+            fontFamily: {
+                mg: ['monogram', 'sans-serif'],
+                m5: ['m5x7', 'sans-serif'],
+                retro: ['RETRO_SPACE_INV', 'sans-serif'],
+            },
             borderRadius: {
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",

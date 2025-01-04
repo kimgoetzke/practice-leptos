@@ -7,11 +7,15 @@ body {
 }
 
 nav {
-    @apply p-4 text-nord4 sm:sticky top-2 w-full;
+    @apply p-4 text-nord4 sm:fixed top-2 w-full flex justify-center items-center;
 }
 
 .navbar-item {
-    @apply mr-6 px-3 text-center content-center text-xl rounded-full transform transition-all duration-200 bg-nord0/70 hover:bg-nord1 hover:text-nord8 hover:outline hover:outline-nord8 flex-none h-10 active:bg-nord3 active:outline-nord13 active:text-nord13;
+    @apply px-3 text-center text-2xl font-retro content-center rounded-full transform transition-all duration-200 bg-nord0/70 hover:bg-nord1 hover:text-nord8 hover:outline hover:outline-nord8 flex-none h-10 active:bg-nord3 active:outline-nord13 active:text-nord13;
+}
+
+.navbar-text-item {
+    @apply pl-3 pr-4 text-center text-2xl font-retro content-center rounded-full transform transition-all duration-200 bg-nord0/70 hover:bg-nord1 hover:text-nord8 hover:outline hover:outline-nord8 flex-none h-10 active:bg-nord3 active:outline-nord13 active:text-nord13;
 }
 
 main {
@@ -23,11 +27,11 @@ main {
 }
 
 a {
-    @apply transform transition-all duration-200 /*hover:underline underline-offset-4*/ active:outline-nord13 active:text-nord13;
+    @apply transform transition-all duration-200 active:outline-nord13 active:text-nord13;
 }
 
 h1 {
-    @apply text-6xl text-nord4 box-decoration-clone rounded-md bg-gradient-to-r from-nord8 via-nord9 to-nord10 p-3;
+    @apply text-9xl text-nord4 font-m5 box-decoration-clone rounded-md bg-gradient-to-r from-nord8 via-nord9 to-nord10 pl-4 pr-2;
 }
 
 h2 {
@@ -56,7 +60,7 @@ span.tag {
 
 .typewriter {
     overflow: hidden;
-    border-right: .1em solid #D08770;
+    border-right: .15em solid #D08770;
     white-space: nowrap;
     margin: 0 auto;
     animation: typewriter-caret .75s step-end infinite;
@@ -76,6 +80,36 @@ span.tag {
     }
     50% {
         border-color: #D08770;
+    }
+}
+
+@font-face {
+    font-family: 'mg';
+    /*noinspection CssUnknownTarget*/
+    src: url('/monogram.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'm5';
+    /*noinspection CssUnknownTarget*/
+    src: url('/m5x7.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'retro';
+    /*noinspection CssUnknownTarget*/
+    src: url('/RETRO_SPACE.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media (min-width: 640px) {
+    main {
+        @apply mt-16;
     }
 }
 

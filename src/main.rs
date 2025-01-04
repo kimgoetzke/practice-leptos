@@ -16,11 +16,11 @@ fn App() -> impl IntoView {
   view! {
     <Router>
       <nav>
-        <div class="flex flex-row justify-center justify-items-center p-2 mx-12 rounded-full bg-nord0/25 backdrop-blur-sm">
-          <div class="navbar-item">
+        <div class="inline-flex flex-row p-2 mx-12 space-x-6 rounded-full bg-nord0/25 backdrop-blur-sm">
+          <div class="navbar-text-item">
             <A href="/">Home</A>
           </div>
-          <div class="navbar-item">
+          <div class="navbar-text-item">
             <A href="/blog">Blog</A>
           </div>
           <div class="navbar-item">

@@ -1,5 +1,9 @@
 # Practice WASM & Leptos
 
+## Attribution
+
+- [RETRO_SPACE](https://opengameart.org/content/font-retrospace) font (CC0) by Daniel Michel
+
 ## How to develop
 
 ### Start

@@ -6,5 +6,6 @@ edition = "2021"
 [dependencies]
 console_error_panic_hook = "0.1.7"
 leptos = { version = "0.7.2", features = ["csr"] }
+leptos-use = { version = "0.15.2", features = ["use_interval", "use_interval_fn"] }
 leptos_router = { version = "0.7.2" }
 lucide-leptos = "1.1.0"

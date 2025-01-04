@@ -1,5 +1,6 @@
 use leptos::prelude::*;
 use std::time::Duration;
+use leptos_use::use_interval_fn;
 
 #[component]
 pub(crate) fn Home() -> impl IntoView {
@@ -21,7 +22,7 @@ pub(crate) fn Home() -> impl IntoView {
     <div class="centered-layout">
       <h1>Welcome!</h1>
       <div class="p-4"></div>
-      <div class="typewriter">{' '}<p>{move || current_text.get()}</p></div>
+      <div class="typewriter">{' '}<p class="font-retro">{move || current_text.get()}</p></div>
     </div>
   }
 }
@@ -32,36 +33,33 @@ fn animate_text(text: Vec<String>, set_current_text: WriteSignal<String>) {
   let (is_writing, set_is_writing) = signal(true);
   let (is_waiting, set_is_waiting) = signal(false);
 
-  set_interval(
-    {
-      let text = text.clone();
-      move || {
-        if is_waiting.get() {
-          return;
-        }
+  use_interval_fn(
+    move || {
+      if is_waiting.get() {
+        return;
+      }
 
-        let idx = current_index.get();
-        let c_idx = char_index.get();
-        let writing = is_writing.get();
+      let idx = current_index.get();
+      let c_idx = char_index.get();
+      let writing = is_writing.get();
 
-        if writing {
-          if c_idx < text[idx].len() {
-            type_character(set_current_text, set_char_index, &text, idx, c_idx);
-          } else {
-            wait(4, set_is_writing, set_is_waiting);
-          }
+      if writing {
+        if c_idx < text[idx].len() {
+          type_character(set_current_text, set_char_index, &text, idx, c_idx);
         } else {
-          if c_idx > 0 {
-            set_char_index.set(c_idx - 1);
-            set_current_text.set(text[idx][..c_idx - 1].to_string());
-          } else {
-            set_current_index.set((idx + 1) % text.len());
-            set_is_writing.set(true);
-          }
+          wait(4, set_is_writing, set_is_waiting);
+        }
+      } else {
+        if c_idx > 0 {
+          set_char_index.set(c_idx - 1);
+          set_current_text.set(text[idx][..c_idx - 1].to_string());
+        } else {
+          set_current_index.set((idx + 1) % text.len());
+          set_is_writing.set(true);
         }
       }
     },
-    Duration::from_millis(75),
+    50,
   );
 }
 
