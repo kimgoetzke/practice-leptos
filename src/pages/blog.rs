@@ -1,48 +1,53 @@
 use leptos::prelude::*;
+use leptos::wasm_bindgen::JsValue;
+use leptos::web_sys::js_sys::Date;
 use leptos_router::components::*;
+use crate::components::*;
 
 #[component]
 pub(crate) fn Blog() -> impl IntoView {
-  let (count, set_count) = signal(0);
-
   view! {
     <div>
       <h2>Blog</h2>
-      <p class="pb-6">Welcome to the blog!</p>
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6">
         {move || {
           let posts = crate::pages::blog_post::BLOG_POSTS.clone();
           posts
             .into_iter()
             .map(|post| {
+              let date = Date::new(&JsValue::from_f64(post.created_at));
+              let formatted_date = format!("{}", date.to_locale_date_string("en-GB", &JsValue::undefined()));
               view! {
-                <div class="p-4 rounded-lg shadow-md transition hover:shadow-lg bg-nord6">
-                  <h4 class="mb-2 text-xl font-semibold text-nord0">
-                    <A href=post.id.clone()>{post.title.clone()}</A>
-                  </h4>
-                  {move || {
-                    post.image.as_ref().map(|img| view! { <img class="w-auto max-h-32 rounded-xl" src=img.clone() /> })
-                  }}
-                  <p class="mb-4 text-nord0">{post.content.clone()}</p>
-                  <p class="mb-2 text-sm text-nord2">
-                    <strong>"Tags: "</strong>
-                    {post.tags.join(", ")}
-                  </p>
-                  <p class="text-sm text-nord3">
-                    <strong>"Created at: "</strong>
-                    {post.created_at}
-                  </p>
+                <div class="flex flex-col rounded-lg shadow-md transition hover:shadow-lg bg-nord1">
+                  <div class="flex overflow-hidden justify-center items-center max-h-32 rounded-t-lg">
+                    {move || {
+                      post
+                        .image
+                        .as_ref()
+                        .map(|img| view! { <img class="object-cover w-full h-full" src=img.clone() /> })
+                    }}
+                  </div>
+                  <div class="p-4">
+                    <h4 class="mb-2 text-xl font-semibold group text-nord4">
+                      <A href=post.id.clone()>
+                        <span class="underlined">{post.title.clone()}</span>
+                      </A>
+                    </h4>
+                  </div>
+                  <div class="overflow-hidden flex-grow p-4 max-h-48 text-ellipsis line-clamp-3">
+                    <p class="mb-4 text-nord6">{post.content.clone()}</p>
+                  </div>
+                  <div class="p-4 mt-auto">
+                    <p class="mb-2 text-sm text-nord3">
+                      {post.tags.iter().map(|tag| view! { <Tag tag=tag.clone() /> }).collect::<Vec<_>>()}
+                    </p>
+                    <p class="text-sm text-nord3">"Created: " {formatted_date}</p>
+                  </div>
                 </div>
               }
             })
             .collect::<Vec<_>>()
         }}
-      </div>
-      <div class="py-6">
-        <button class="button-standard" on:click=move |_| *set_count.write() += 1>
-          "Subscribe"
-        </button>
-        <p>"Subscribers: "{count}</p>
       </div>
     </div>
   }

@@ -2,20 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.button-standard {
-    @apply rounded-lg my-2 p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:bg-nord13 hover:text-nord3;
-}
-
 body {
     @apply bg-nord0 h-screen flex flex-col;
 }
 
 nav {
-    @apply p-4 text-nord4 flex flex-row;
+    @apply p-4 text-nord4 sm:sticky top-2 w-full;
 }
 
 .navbar-item {
-    @apply mr-6 text-center content-center text-xl rounded-xl transform transition-all duration-200 hover:bg-nord1 hover:font-bold flex-initial w-20 h-10;
+    @apply mr-6 px-3 text-center content-center text-xl rounded-full transform transition-all duration-200 bg-nord0/70 hover:bg-nord1 hover:text-nord8 hover:outline hover:outline-nord8 flex-none h-10 active:bg-nord3 active:outline-nord13 active:text-nord13;
 }
 
 main {
@@ -26,8 +22,12 @@ main {
     @apply flex flex-col h-full items-center justify-center;
 }
 
+a {
+    @apply transform transition-all duration-200 /*hover:underline underline-offset-4*/ active:outline-nord13 active:text-nord13;
+}
+
 h1 {
-    @apply text-6xl text-nord4 box-decoration-clone rounded-sm bg-gradient-to-r from-nord8 via-nord9 to-nord10 p-3;
+    @apply text-6xl text-nord4 box-decoration-clone rounded-md bg-gradient-to-r from-nord8 via-nord9 to-nord10 p-3;
 }
 
 h2 {
@@ -40,6 +40,18 @@ h3 {
 
 p {
     @apply text-nord6 text-lg;
+}
+
+.default-button {
+    @apply rounded-lg my-2 p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
+}
+
+span.underlined {
+    @apply bg-left-bottom bg-gradient-to-r from-nord8 to-nord10 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out;
+}
+
+span.tag {
+    @apply rounded-lg my-2 p-1 text-nord15 outline outline-1 outline-nord15 transform transition-all duration-200 hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
 }
 
 .typewriter {
