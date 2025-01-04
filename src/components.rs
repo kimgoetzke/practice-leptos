@@ -7,11 +7,20 @@ pub(crate) fn Tag(tag: String) -> impl IntoView {
 }
 
 #[component]
+pub(crate) fn Timeline(children: Children) -> impl IntoView {
+  view! {
+    <div class="relative py-24 my-12 space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-nord7 before:to-transparent md:before:ml-[8.75rem] md:before:translate-x-0">
+      {children()}
+    </div>
+  }
+}
+
+#[component]
 pub(crate) fn TimelineEntry(
   date: String,
   sub_title: String,
   title: String,
-  description: String,
+  bullet_points: Vec<String>,
   icon: impl IntoView,
 ) -> impl IntoView {
   view! {
@@ -26,7 +35,20 @@ pub(crate) fn TimelineEntry(
           {title}
         </div>
       </div>
-      <div class="p-4 ml-14 rounded md:ml-44 bg-nord1 text-nord6">{description}</div>
+      <div class="p-4 ml-14 rounded md:ml-44 bg-nord1 text-nord6">
+        <BulletPoints>{bullet_points}</BulletPoints>
+      </div>
     </div>
   }
+}
+
+#[component]
+pub fn BulletPoints(children: ChildrenFragment) -> impl IntoView {
+  let children = children()
+    .nodes
+    .into_iter()
+    .map(|child| view! { <li>{child}</li> })
+    .collect::<Vec<_>>();
+
+  view! { <ul class="pl-4 list-outside list-[square] text-nord9">{children}</ul> }
 }
