@@ -85,7 +85,7 @@ pub(crate) fn Post() -> impl IntoView {
       when=move || post_signal.get().is_some()
       fallback=|| {
         view! {
-          <div class="centered-layout">
+          <div class="full-height-container">
             <h1>"404"</h1>
             <div class="py-6"></div>
             <p>"Sorry, I didn't find this blog post."</p>

@@ -49,7 +49,7 @@ fn App() -> impl IntoView {
 #[component]
 fn NotFound() -> impl IntoView {
   view! {
-    <div class="centered-layout">
+    <div class="full-height-container">
       <h1>404</h1>
       <div class="py-6"></div>
       <p>Sorry, something went wrong.</p>

@@ -28,7 +28,7 @@ pub(crate) fn Blog() -> impl IntoView {
                     }}
                   </div>
                   <div class="p-4">
-                    <h4 class="font-retro text-xl font-semibold group text-nord4">
+                    <h4 class="text-xl font-semibold font-retro group text-nord4">
                       <A href=post.id.clone()>
                         <span class="underlined">{post.title.clone()}</span>
                       </A>
