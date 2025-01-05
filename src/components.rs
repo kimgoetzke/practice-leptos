@@ -1,5 +1,5 @@
-use leptos::{component, view, IntoView};
 use leptos::prelude::*;
+use leptos::{component, view, IntoView};
 
 #[component]
 pub(crate) fn Tag(tag: String) -> impl IntoView {
@@ -11,8 +11,10 @@ pub(crate) fn Timeline(children: Children) -> impl IntoView {
   view! {
     <div class="flex justify-center">
       <div class="max-w-screen-2xl">
-        <div class="relative py-24 my-12 space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-nord7 before:to-transparent md:before:ml-[8.75rem] md:before:translate-x-0">
-          {children()}
+        <div class="justify-self-start self-start place-content-start">
+          <div class="relative py-24 my-12 space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-nord7 before:to-transparent md:before:ml-[8.75rem] md:before:translate-x-0">
+            {children()}
+          </div>
         </div>
       </div>
     </div>
@@ -39,9 +41,19 @@ pub(crate) fn TimelineEntry(
           {title}
         </div>
       </div>
-      <div class="p-4 ml-14 rounded md:ml-44 bg-nord1 text-nord6">
-        <BulletPoints>{bullet_points}</BulletPoints>
-      </div>
+      {move || {
+        let bullet_points = bullet_points.clone();
+        if !bullet_points.is_empty() {
+          return view! {
+            <div class="p-4 ml-14 rounded md:ml-44 bg-nord1 text-nord6">
+              <BulletPoints>{bullet_points}</BulletPoints>
+            </div>
+          }
+            .into_any()
+        } else {
+          return view! { <div></div> }.into_any()
+        }
+      }}
     </div>
   }
 }
