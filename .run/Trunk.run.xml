@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Trunk" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="trunk serve --open" />
+    <option name="SCRIPT_TEXT" value="trunk serve" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="trunk" />
     <option name="SCRIPT_OPTIONS" value="serve --open" />

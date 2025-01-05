@@ -29,6 +29,11 @@ fn App() -> impl IntoView {
             </A>
           </div>
           <div class="navbar-item">
+            <A href="https://uk.linkedin.com/in/kimgoetzke">
+              <lucide_leptos::Linkedin />
+            </A>
+          </div>
+          <div class="navbar-item">
             <A href="https://kimgoetzke.github.io/tags/">
               <lucide_leptos::NotebookPen />
             </A>

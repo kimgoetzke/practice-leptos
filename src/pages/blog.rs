@@ -18,21 +18,25 @@ pub(crate) fn Blog() -> impl IntoView {
               let date = Date::new(&JsValue::from_f64(post.created_at));
               let formatted_date = format!("{}", date.to_locale_date_string("en-GB", &JsValue::undefined()));
               view! {
-                <div class="flex flex-col rounded-lg shadow-md transition hover:shadow-lg bg-nord1">
+                <div class="flex flex-col rounded-lg transition bg-nord1 hover:drop-shadow-xl">
                   <div class="flex overflow-hidden justify-center items-center max-h-32 rounded-t-lg">
-                    {move || {
-                      post
-                        .image
-                        .as_ref()
-                        .map(|img| view! { <img class="object-cover w-full h-full" src=img.clone() /> })
-                    }}
+                    <A href=post
+                      .id
+                      .clone()>
+                      {move || {
+                        post
+                          .image
+                          .as_ref()
+                          .map(|img| view! { <img class="object-cover w-full h-full" src=img.clone() /> })
+                      }}
+                    </A>
                   </div>
                   <div class="p-4">
-                    <h4 class="text-xl font-semibold font-retro group text-nord4">
+                    <h3 class="group">
                       <A href=post.id.clone()>
                         <span class="underlined">{post.title.clone()}</span>
                       </A>
-                    </h4>
+                    </h3>
                   </div>
                   <div class="overflow-hidden flex-grow p-4 max-h-48 text-ellipsis line-clamp-3">
                     <p class="mb-4 text-nord6">{post.content.clone()}</p>

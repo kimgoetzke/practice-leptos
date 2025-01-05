@@ -11,10 +11,11 @@ pub(crate) fn Home() -> impl IntoView {
   let text = vec![
     "Thanks for visiting.",
     "It's great to see you here.",
-    "How are you today?",
-    "I hope you're happy!",
-    "Seen the menu above?",
-    "Don't be shy, click around!",
+    "This website is about me, Kim Goetzke.",
+    "I'm a London-based software developer.",
+    "Scroll down to learn more about me.",
+    "This website is built in Rust...",
+    "...using Leptos, a Rust web framework.",
   ]
   .into_iter()
   .map(String::from)
@@ -30,7 +31,12 @@ pub(crate) fn Home() -> impl IntoView {
       <section class="full-height-section">
         <h1>"Welcome!"</h1>
         <div class="p-4"></div>
-        <div class="typewriter">{' '}<p class="font-retro">{move || current_text.get()}</p></div>
+        <div class="speech-bubble">
+          <div class="typewriter">{' '}<p class="font-retro">{move || current_text.get()}</p></div>
+        </div>
+        <div>
+          <img src="/images/avatar-1.gif" class="w-52 h-52 rounded-full drop-shadow-xl" />
+        </div>
         <Show when=move || !has_scrolled.get() fallback=|| ()>
           <div class="bouncing-arrow">
             <lucide_leptos::ArrowDown color="#88C0D0" size=48 />
@@ -38,10 +44,10 @@ pub(crate) fn Home() -> impl IntoView {
         </Show>
       </section>
       <section class="content-section">
-        <h2>"Work experience"</h2>
+        <h2>"Professionally, I've been working as a web developer"</h2>
         <Timeline>
           <TimelineEntry
-            date="Jan 2024".to_string()
+            date="Jan 2025".to_string()
             sub_title="Goji Investments".to_string()
             title="Senior Software Engineer".to_string()
             bullet_points=vec![
@@ -51,7 +57,7 @@ pub(crate) fn Home() -> impl IntoView {
             icon=view! { <lucide_leptos::Rabbit color="#8FBCBB" /> }
           />
           <TimelineEntry
-            date="Jan 2023".to_string()
+            date="Jan 2024".to_string()
             sub_title="Goji Investments".to_string()
             title="Software Engineer".to_string()
             bullet_points=vec![
@@ -62,7 +68,7 @@ pub(crate) fn Home() -> impl IntoView {
             icon=view! { <lucide_leptos::Rat color="#8FBCBB" /> }
           />
           <TimelineEntry
-            date="Feb 2023".to_string()
+            date="Mar 2023".to_string()
             sub_title="Goji Investments".to_string()
             title="Junior Software Engineer".to_string()
             bullet_points=vec![
@@ -73,6 +79,16 @@ pub(crate) fn Home() -> impl IntoView {
             icon=view! { <lucide_leptos::Snail color="#8FBCBB" /> }
           />
         </Timeline>
+      </section>
+      <section class="content-section">
+        <h2 class="text-right">"...and before that I was a startup executive..."</h2>
+      </section>
+      <section class="content-section">
+        <h2>"...but ever since changing my career, I have been in love with software development"</h2>
+        <h3 class="text-center">"...from procedural generation..."</h3>
+        <h3 class="text-center">"...to mobile development..."</h3>
+        <h3 class="text-center">"...to game development..."</h3>
+        <h3 class="text-center">"...and much more!"</h3>
       </section>
     </div>
   }

@@ -43,7 +43,7 @@ a {
 }
 
 h1 {
-    @apply text-9xl text-nord4 font-m5 box-decoration-clone rounded-md bg-gradient-to-r from-nord8 via-nord9 to-nord10 pl-4 pr-2;
+    @apply text-9xl text-transparent bg-clip-text font-m5 box-decoration-clone rounded-md bg-gradient-to-r from-nord8 via-nord9 to-nord10 pl-4 pr-2;
 }
 
 h2 {
@@ -51,7 +51,7 @@ h2 {
 }
 
 h3 {
-    @apply text-2xl text-nord4 underline decoration-nord8 py-2;
+    @apply text-xl font-semibold font-retro text-nord4;
 }
 
 p {
@@ -70,12 +70,19 @@ span.tag {
     @apply font-m5 rounded-lg my-2 p-1 text-nord15 outline outline-1 outline-nord15 transform transition-all duration-200 hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
 }
 
+.speech-bubble {
+    /*noinspection CssUnknownTarget*/
+    background-image: url('/images/speech-bubble.png');
+    @apply bg-auto bg-center bg-no-repeat w-screen h-52 flex items-center justify-center;
+}
+
 .typewriter {
     overflow: hidden;
     border-right: .15em solid #D08770;
     white-space: nowrap;
     margin: 0 auto;
     animation: typewriter-caret .75s step-end infinite;
+    text-align: center;
 }
 
 .typewriter h1 {
