@@ -1,5 +1,5 @@
-mod pages;
 mod components;
+mod pages;
 
 use crate::pages::*;
 use leptos::prelude::*;
@@ -17,27 +17,27 @@ fn App() -> impl IntoView {
     <Router>
       <nav>
         <div class="inline-flex flex-row p-2 mx-12 space-x-6 rounded-full bg-nord0/25 backdrop-blur-sm">
-          <div class="navbar-text-item">
-            <A href="/">Home</A>
-          </div>
-          <div class="navbar-text-item">
-            <A href="/blog">Blog</A>
-          </div>
-          <div class="navbar-item">
-            <A href="https://github.com/kimgoetzke">
+          <A href="/">
+            <div class="navbar-text-item">Home</div>
+          </A>
+          <A href="/blog">
+            <div class="navbar-text-item">Blog</div>
+          </A>
+          <A href="https://github.com/kimgoetzke">
+            <div class="navbar-item">
               <lucide_leptos::Github />
-            </A>
-          </div>
-          <div class="navbar-item">
-            <A href="https://uk.linkedin.com/in/kimgoetzke">
+            </div>
+          </A>
+          <A href="https://uk.linkedin.com/in/kimgoetzke">
+            <div class="navbar-item">
               <lucide_leptos::Linkedin />
-            </A>
-          </div>
-          <div class="navbar-item">
-            <A href="https://kimgoetzke.github.io/tags/">
+            </div>
+          </A>
+          <A href="https://kimgoetzke.github.io/tags/">
+            <div class="navbar-item">
               <lucide_leptos::NotebookPen />
-            </A>
-          </div>
+            </div>
+          </A>
         </div>
       </nav>
       <main>
