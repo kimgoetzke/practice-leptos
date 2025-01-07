@@ -19,7 +19,7 @@ nav {
 }
 
 main {
-    @apply p-6 flex-grow;
+    @apply flex-grow;
 }
 
 .full-height-container {
@@ -35,7 +35,7 @@ main {
 }
 
 .content-section {
-    @apply w-full p-20 max-w-screen-2xl justify-start;
+    @apply w-full max-w-screen-2xl justify-start p-20;
 }
 
 a {
@@ -59,7 +59,7 @@ p {
 }
 
 .default-button {
-    @apply rounded-lg my-2 p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
+    @apply rounded-lg font-retro text-xl p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
 }
 
 span.underlined {
@@ -68,6 +68,12 @@ span.underlined {
 
 span.tag {
     @apply font-m5 rounded-lg my-2 p-1 text-nord15 outline outline-1 outline-nord15 transform transition-all duration-200 hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
+}
+
+.content-section .showcase {
+    @apply relative;
+    left: -80px;
+    width: calc(100% + 160px);
 }
 
 .speech-bubble {
