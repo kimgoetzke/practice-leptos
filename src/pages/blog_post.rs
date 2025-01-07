@@ -1,11 +1,11 @@
+use crate::components::*;
 use leptos::logging::log;
 use leptos::prelude::*;
+use leptos::wasm_bindgen::JsValue;
 use leptos::web_sys::js_sys::Date;
 use leptos::{component, view, IntoView};
 use leptos_router::hooks::use_params_map;
 use std::sync::LazyLock;
-use leptos::wasm_bindgen::JsValue;
-use crate::components::*;
 
 #[derive(Clone, PartialEq)]
 pub(crate) struct BlogPost {
@@ -77,9 +77,7 @@ pub(crate) fn Post() -> impl IntoView {
   let params = use_params_map();
   let id = move || params.read().get("id").unwrap_or_default();
   log!("id: {}", id());
-  let post_signal = Memo::new(move |_| {
-    BLOG_POSTS.iter().find(|post| post.id == id()).cloned()
-  });
+  let post_signal = Memo::new(move |_| BLOG_POSTS.iter().find(|post| post.id == id()).cloned());
   view! {
     <Show
       when=move || post_signal.get().is_some()

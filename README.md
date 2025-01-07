@@ -2,6 +2,10 @@
 
 This repository contains a simple Rust WASM frontend project to practice using the Leptos library.
 
+## Demo
+
+![Screenshots 1](./assets/demo.gif)
+
 ## Attribution
 
 - [RETRO_SPACE](https://opengameart.org/content/font-retrospace) font (CC0) by Daniel Michel
@@ -22,6 +26,14 @@ To start, run the following command (and open `localhost:8080` in your browser, 
   ```shell
   trunk serve --open
   ```
+
+To deploy, run:
+
+  ```shell
+  trunk build --release
+  ```
+
+Then use the files in the `dist` folder with any static site host to serve these files.
 
 ### Using Nix Flakes, JetBrains RustRover & Direnv
 
