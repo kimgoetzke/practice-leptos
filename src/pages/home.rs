@@ -44,7 +44,10 @@ pub(crate) fn Home() -> impl IntoView {
         </Show>
       </section>
       <section class="content-section">
-        <h2>"Professionally, I've been working as a web developer"</h2>
+        <h2>"I've been working as a web developer in financial technology"</h2>
+        <p class="text-sm">
+          "My focus has been on security- and authentication-related topics, such as single sign-on, user provisioning, single logout, JWT or device deny listing, and permissions. I mostly work with Java, various AWS services, and occasionally with TypeScript/NextJS."
+        </p>
         <Timeline>
           <TimelineEntry
             date="Jan 2025".to_string()
@@ -81,10 +84,42 @@ pub(crate) fn Home() -> impl IntoView {
         </Timeline>
       </section>
       <section class="content-section">
-        <h2 class="text-right">"...and before that I was a startup executive..."</h2>
+        <h2 class="text-right">"Previously, I was a startup executive"</h2>
+        <Timeline>
+          <TimelineEntry
+            date="Jul 2021 - Apr 2023".to_string()
+            sub_title="Blissgrowth".to_string()
+            title="Partner and Co-founder".to_string()
+            bullet_points=Vec::new()
+            icon=view! { <lucide_leptos::BriefcaseBusiness color="#8FBCBB" /> }
+          />
+          <TimelineEntry
+            date="May 2021 - Sep 2022".to_string()
+            sub_title="Screenloop".to_string()
+            title="Interim COO/CFO".to_string()
+            bullet_points=Vec::new()
+            icon=view! { <lucide_leptos::BriefcaseBusiness color="#8FBCBB" /> }
+          />
+          <TimelineEntry
+            date="Dec 2019 - May 2021".to_string()
+            sub_title="Growth Street".to_string()
+            title="COO and Executive Director (SMF3)".to_string()
+            bullet_points=Vec::new()
+            icon=view! { <lucide_leptos::BriefcaseBusiness color="#8FBCBB" /> }
+          />
+          <TimelineEntry
+            date="Feb 2017 - Dec 2019".to_string()
+            sub_title="Growth Street".to_string()
+            title="Operations Director".to_string()
+            bullet_points=Vec::new()
+            icon=view! { <lucide_leptos::BriefcaseBusiness color="#8FBCBB" /> }
+          />
+        </Timeline>
       </section>
       <section class="content-section">
-        <h2>"...but ever since changing my career, I have been in love with software development"</h2>
+        <h2>
+          "What I want you to take away from reading this page is that I learn quickly and I love software development"
+        </h2>
         <h3 class="text-center">"...from procedural generation..."</h3>
         <h3 class="text-center">"...to mobile development..."</h3>
         <h3 class="text-center">"...to game development..."</h3>

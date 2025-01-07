@@ -1,9 +1,10 @@
 # Practice WASM & Leptos
 
+This repository contains a simple Rust WASM frontend project to practice using the Leptos library.
+
 ## Attribution
 
 - [RETRO_SPACE](https://opengameart.org/content/font-retrospace) font (CC0) by Daniel Michel
-- [m5x7](https://managore.itch.io/m5x7) font (CC0) by Daniel Linssen
 - [m5x7](https://managore.itch.io/m5x7) font (CC0) by Daniel Linssen
 
 ## How to develop

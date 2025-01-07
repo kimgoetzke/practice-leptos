@@ -10,7 +10,7 @@ pub(crate) fn Tag(tag: String) -> impl IntoView {
 pub(crate) fn Timeline(children: Children) -> impl IntoView {
   view! {
     <div class="justify-self-start self-start place-content-start">
-      <div class="relative py-24 my-12 space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-nord7 before:to-transparent md:before:ml-[8.75rem] md:before:translate-x-0">
+      <div class="relative py-6 my-12 space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-nord7 before:to-transparent md:before:ml-[8.75rem] md:before:translate-x-0">
         {children()}
       </div>
     </div>
