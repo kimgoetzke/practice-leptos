@@ -2,10 +2,20 @@
 name = "practice-leptos"
 version = "0.1.0"
 edition = "2021"
+authors = ["Kim Goetzke"]
 
 [dependencies]
-console_error_panic_hook = "0.1.7"
-leptos = { version = "0.7.2", features = ["csr"] }
+leptos = { version = "0.7.3", features = ["csr"] }
 leptos-use = { version = "0.15.2", features = ["use_interval", "use_interval_fn"] }
-leptos_router = { version = "0.7.2" }
+leptos_router = { version = "0.7.3" }
+leptos_meta = { version = "0.7" }
 lucide-leptos = "1.1.0"
+console_error_panic_hook = "0.1.7"
+console_log = "1.0.0"
+log = "0.4.22"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"

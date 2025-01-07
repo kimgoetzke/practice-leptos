@@ -5,15 +5,22 @@ use crate::pages::*;
 use leptos::prelude::*;
 use leptos_router::components::*;
 use leptos_router::path;
+use leptos_meta::*;
 
 fn main() {
+  _ = console_log::init_with_level(log::Level::Debug);
   console_error_panic_hook::set_once();
   mount_to_body(App);
 }
 
 #[component]
 fn App() -> impl IntoView {
+  provide_meta_context();
+
   view! {
+    <Title text="Kim Goetzke" />
+    <Meta charset="UTF-8" />
+    <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <Router>
       <nav>
         <div class="inline-flex flex-row p-2 mx-12 space-x-6 rounded-full bg-nord0/25 backdrop-blur-sm">
