@@ -62,5 +62,23 @@ pub fn BulletPoints(children: ChildrenFragment) -> impl IntoView {
     .map(|child| view! { <li>{child}</li> })
     .collect::<Vec<_>>();
 
-  view! { <ul class="pl-4 list-outside list-[square] text-nord9">{children}</ul> }
+  view! { <ul class="pl-4 text-sm list-outside list-[square] text-nord4">{children}</ul> }
+}
+
+#[component]
+pub(crate) fn Showcase(image_path: String, description: String, link: String) -> impl IntoView {
+  view! {
+    <div class="relative justify-self-start self-start place-content-start mb-8 w-full h-96 showcase">
+      <img class="object-cover w-full h-full" src=image_path.clone() />
+      <div class="absolute top-0 right-0 p-2 m-8 max-w-screen-md text-right rounded-xl bg-nord0/25 backdrop-blur-sm">
+        <p class="text-3xl text-nord4 font-m5">{description}</p>
+      </div>
+      <a href=link.clone() rel="external" target="tab">
+        <div class="inline-flex absolute right-0 bottom-0 items-center m-8 space-x-5 default-button">
+          <span>Read more on</span>
+          <lucide_leptos::Github />
+        </div>
+      </a>
+    </div>
+  }
 }

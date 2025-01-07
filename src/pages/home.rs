@@ -1,10 +1,10 @@
+use crate::components::*;
 use leptos::prelude::*;
-use std::time::Duration;
 use leptos::wasm_bindgen::prelude::Closure;
 use leptos::wasm_bindgen::JsCast;
 use leptos::web_sys::Event;
 use leptos_use::use_interval_fn;
-use crate::components::*;
+use std::time::Duration;
 
 #[component]
 pub(crate) fn Home() -> impl IntoView {
@@ -45,8 +45,8 @@ pub(crate) fn Home() -> impl IntoView {
       </section>
       <section class="content-section">
         <h2>"I've been working as a web developer in financial technology"</h2>
-        <p class="text-sm">
-          "My focus has been on security- and authentication-related topics, such as single sign-on, user provisioning, single logout, JWT or device deny listing, and permissions. I mostly work with Java, various AWS services, and occasionally with TypeScript/NextJS."
+        <p class="text-md">
+          "My focus has been on authentication- & authorisation-related problems, such as single sign-on (SSO), user provisioning, single logout (SLO), JWT or device deny listing, and permissions. I mostly work with Java, various AWS services, and occasionally with TypeScript/NextJS."
         </p>
         <Timeline>
           <TimelineEntry
@@ -54,7 +54,7 @@ pub(crate) fn Home() -> impl IntoView {
             sub_title="Goji Investments".to_string()
             title="Senior Software Engineer".to_string()
             bullet_points=vec![
-              "Goji is financial technology company, providing a white label investment platform to service and distributing private funds at scale."
+              "Goji is financial technology company, providing a white label investment platform to service and distributing private funds at scale"
                 .to_string(),
             ]
             icon=view! { <lucide_leptos::Rabbit color="#8FBCBB" /> }
@@ -64,9 +64,18 @@ pub(crate) fn Home() -> impl IntoView {
             sub_title="Goji Investments".to_string()
             title="Software Engineer".to_string()
             bullet_points=vec![
-              "I did some impressive stuff".to_string(),
-              "Look at me, bro".to_string(),
-              "I am amazing".to_string(),
+              "Independently designed and implemented an automated, daily validation mechanism for authentication-related certificates (first and third party) that checks upcoming expiration dates and integrates with alerting and communication tools to create alerts of varying severity"
+                .to_string(),
+              "Worked on various continuous improvements to Goji's proprietary permission system and deprecated legacy role-based logic which involved several sensitive migrations and data fixes"
+                .to_string(),
+              "Improved Goji's single sign-on (SSO) implementation by proposing and implementing a mechanism that gives customers the ability to provision users to entities and integrate with Goji's permission logic via the their own identity provider"
+                .to_string(),
+              "Independently designed, proposed, implemented, and documented a SAML-based single logout (SLO) flow"
+                .to_string(),
+              "Worked with product, operations, and technical stakeholders to create detailed technical as well as customer-facing documentation for SSO and user provisioning"
+                .to_string(),
+              "Communicated with technical/product/executive-level staff of customers implementing SSO and SLO with Goji"
+                .to_string(),
             ]
             icon=view! { <lucide_leptos::Rat color="#8FBCBB" /> }
           />
@@ -75,9 +84,12 @@ pub(crate) fn Home() -> impl IntoView {
             sub_title="Goji Investments".to_string()
             title="Junior Software Engineer".to_string()
             bullet_points=vec![
-              "I did some stuff".to_string(),
-              "I also did X".to_string(),
-              "And I learnt how to do Y".to_string(),
+              "Worked with a senior developer and the cloud operations lead to design and run single sign-on (SSO) proof of concept using OAuth/OIDC and AWS Cognito"
+                .to_string(),
+              "Designed, proposed, implemented, and documented SAML-based SSO for the customer and service logins across Goji's core platforms together with a senior developer, pair programming for large parts of the project"
+                .to_string(),
+              "Communicated directly with product/technical staff of customers using SSO during testing/implementation phase"
+                .to_string(),
             ]
             icon=view! { <lucide_leptos::Snail color="#8FBCBB" /> }
           />
@@ -85,6 +97,12 @@ pub(crate) fn Home() -> impl IntoView {
       </section>
       <section class="content-section">
         <h2 class="text-right">"Previously, I was a startup executive"</h2>
+        <a href="https://uk.linkedin.com/in/kimgoetzke" rel="external" target="tab" class="flex justify-end">
+          <div class="inline-flex items-center space-x-5 text-right default-button">
+            <span>Read more on</span>
+            <lucide_leptos::Linkedin />
+          </div>
+        </a>
         <Timeline>
           <TimelineEntry
             date="Jul 2021 - Apr 2023".to_string()
@@ -118,11 +136,29 @@ pub(crate) fn Home() -> impl IntoView {
       </section>
       <section class="content-section">
         <h2>
-          "What I want you to take away from reading this page is that I learn quickly and I love software development"
+          "What I hope you take away from reading this page is that I am ambitious, I learn quickly, and I love software development"
         </h2>
         <h3 class="text-center">"...from procedural generation..."</h3>
+        <Showcase
+          image_path="images/procedural-generation-1.png".to_string()
+          description="A procedurally generated 2D, pixel art, tile set-based world, written in Rust using Bevy Engine"
+            .to_string()
+          link="https://github.com/kimgoetzke/procedural-generation-2".to_string()
+        />
         <h3 class="text-center">"...to mobile development..."</h3>
+        <Showcase
+          image_path="/images/mobile-development-1.png".to_string()
+          description="A minimalist list app for Android which I use every day, written in C# using .NET MAUI and MongoDB Atlas and Realm"
+            .to_string()
+          link="https://github.com/kimgoetzke/listem".to_string()
+        />
         <h3 class="text-center">"...to game development..."</h3>
+        <Showcase
+          image_path="images/game-development-1.png".to_string()
+          description="A proof-of-concept for a top-down, 3D pixel art, action RPG using 2D sprites, developed in C# and Unity"
+            .to_string()
+          link="https://github.com/kimgoetzke/game-muffin".to_string()
+        />
         <h3 class="text-center">"...and much more!"</h3>
       </section>
     </div>
