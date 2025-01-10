@@ -89,7 +89,7 @@ span.highlighted {
 .speech-bubble {
     /*noinspection CssUnknownTarget*/
     background-image: url('/images/speech-bubble.png');
-    @apply bg-auto bg-center bg-no-repeat w-screen h-52 flex items-center justify-center;
+    @apply sm:bg-auto bg-center bg-no-repeat w-screen h-16 my-6 sm:m-0 sm:h-52 flex items-center justify-center;
 }
 
 .typewriter {
@@ -154,6 +154,7 @@ span.highlighted {
     font-style: normal;
 }
 
+/* Required to make sure top/first elements are not hidden by navbar */
 @media (min-width: 640px) {
     main {
         @apply mt-16;

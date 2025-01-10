@@ -6,7 +6,7 @@ authors = ["Kim Goetzke"]
 
 [dependencies]
 leptos = { version = "0.7.3", features = ["csr"] }
-leptos-use = { version = "0.15.2", features = ["use_interval", "use_interval_fn"] }
+leptos-use = { version = "0.15.2", features = ["use_interval_fn", "use_window_scroll"] }
 leptos_router = { version = "0.7.3" }
 leptos_meta = { version = "0.7" }
 lucide-leptos = "1.1.0"

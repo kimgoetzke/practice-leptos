@@ -1,9 +1,6 @@
 use crate::components::*;
 use leptos::prelude::*;
-use leptos::wasm_bindgen::prelude::Closure;
-use leptos::wasm_bindgen::JsCast;
-use leptos::web_sys::Event;
-use leptos_use::use_interval_fn;
+use leptos_use::{use_interval_fn, use_window_scroll};
 use std::time::Duration;
 
 #[component]
@@ -28,9 +25,8 @@ pub(crate) fn Home() -> impl IntoView {
 
   view! {
     <div class="home-container">
-      <section class="full-height-section">
+      <section class="-mt-16 full-height-section">
         <h1>"Welcome!"</h1>
-        <div class="p-4"></div>
         <div class="speech-bubble">
           <div class="typewriter">{' '}<p class="font-retro">{move || current_text.get()}</p></div>
         </div>
@@ -146,7 +142,6 @@ pub(crate) fn Home() -> impl IntoView {
           description="A basic microservice architecture, written in Java using the Spring Framework, Postgres, Keycloak, etc."
             .to_string()
           link="https://github.com/kimgoetzke/practice-microservices".to_string()
-          is_light_text=true
         />
         <h3 class="text-center">"...to procedural generation..."</h3>
         <Showcase
@@ -154,7 +149,6 @@ pub(crate) fn Home() -> impl IntoView {
           description="A procedurally generated 2D, pixel art, tile set-based world, written in Rust using Bevy Engine"
             .to_string()
           link="https://github.com/kimgoetzke/procedural-generation-2".to_string()
-          is_light_text=true
         />
         <h3 class="text-center">"...to mobile development..."</h3>
         <Showcase
@@ -162,7 +156,6 @@ pub(crate) fn Home() -> impl IntoView {
           description="A minimalist list app for Android which I still use every day, written in C# using .NET MAUI and MongoDB Atlas and Realm"
             .to_string()
           link="https://github.com/kimgoetzke/listem".to_string()
-          is_light_text=false
         />
         <h3 class="text-center">"...to game development..."</h3>
         <Showcase
@@ -170,7 +163,6 @@ pub(crate) fn Home() -> impl IntoView {
           description="A proof-of-concept for 3D pixel art, action RPG using 2D sprites, developed in C# and Unity"
             .to_string()
           link="https://github.com/kimgoetzke/game-muffin".to_string()
-          is_light_text=true
         />
         <h3 class="text-center">"...and much more!"</h3>
       </section>
@@ -179,17 +171,9 @@ pub(crate) fn Home() -> impl IntoView {
 }
 
 fn update_has_scrolled(set_has_scrolled: WriteSignal<bool>) {
+  let (_, y) = use_window_scroll();
   Effect::new(move |_| {
-    let on_scroll = move |_| {
-      let scroll_y = window().scroll_y().unwrap_or(0.0);
-      set_has_scrolled.set(scroll_y > 10.0);
-    };
-
-    let closure = Closure::wrap(Box::new(on_scroll) as Box<dyn FnMut(Event)>);
-    window()
-      .add_event_listener_with_callback("scroll", closure.as_ref().unchecked_ref())
-      .unwrap();
-    closure.forget();
+    set_has_scrolled.set(y.get() > 10.0);
   });
 }
 
