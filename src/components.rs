@@ -66,12 +66,14 @@ pub fn BulletPoints(children: ChildrenFragment) -> impl IntoView {
 }
 
 #[component]
-pub(crate) fn Showcase(image_path: String, description: String, link: String) -> impl IntoView {
+pub(crate) fn Showcase(image_path: String, description: String, link: String, is_light_text: bool) -> impl IntoView {
+  let text_class = if is_light_text { "text-nord4" } else { "text-nord0" };
+
   view! {
     <div class="relative justify-self-start self-start place-content-start mb-8 w-full h-96 showcase">
       <img class="object-cover w-full h-full" src=image_path.clone() />
       <div class="absolute top-0 right-0 p-2 m-8 max-w-screen-md text-right rounded-xl bg-nord0/25 backdrop-blur-sm">
-        <p class="text-3xl text-nord4 font-m5">{description}</p>
+        <p class={format!("text-3xl font-m5 {}", text_class)}>{description}</p>
       </div>
       <a href=link.clone() rel="external" target="tab">
         <div class="inline-flex absolute right-0 bottom-0 items-center m-8 space-x-5 default-button">

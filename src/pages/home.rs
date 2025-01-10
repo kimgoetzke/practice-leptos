@@ -45,8 +45,11 @@ pub(crate) fn Home() -> impl IntoView {
       </section>
       <section class="content-section">
         <h2>"I've been working as a web developer in financial technology"</h2>
-        <p class="text-md">
-          "My focus has been on authentication- & authorisation-related problems, such as single sign-on (SSO), user provisioning, single logout (SLO), JWT or device deny listing, and permissions. I mostly work with Java, various AWS services, and occasionally with TypeScript/NextJS."
+        <p class="text-xl font-retro">
+          "My focus has been on "<span class="highlighted">"authentication- and authorisation"</span>"-related topics"
+          ", such as single sign-on (SSO), user provisioning, single logout (SLO), JWT or device deny listing, and permissions. I mostly work with "
+          <span class="highlighted">Java</span>", various "<span class="highlighted">AWS services</span>
+          ", and occasionally with "<span class="highlighted">"TypeScript/NextJS"</span>"."
         </p>
         <Timeline>
           <TimelineEntry
@@ -68,10 +71,9 @@ pub(crate) fn Home() -> impl IntoView {
                 .to_string(),
               "Worked on various continuous improvements to Goji's proprietary permission system and deprecated legacy role-based logic which involved several sensitive migrations and data fixes"
                 .to_string(),
-              "Improved Goji's single sign-on (SSO) implementation by proposing and implementing a mechanism that gives customers the ability to provision users to entities and integrate with Goji's permission logic via the their own identity provider"
+              "Improved Goji's SSO implementation by proposing and implementing a mechanism that gives customers the ability to provision users to entities and integrate with Goji's permission logic via the their own identity provider"
                 .to_string(),
-              "Independently designed, proposed, implemented, and documented a SAML-based single logout (SLO) flow"
-                .to_string(),
+              "Independently designed, proposed, implemented, and documented a SAML-based SLO flow".to_string(),
               "Worked with product, operations, and technical stakeholders to create detailed technical as well as customer-facing documentation for SSO and user provisioning"
                 .to_string(),
               "Communicated with technical/product/executive-level staff of customers implementing SSO and SLO with Goji"
@@ -84,7 +86,7 @@ pub(crate) fn Home() -> impl IntoView {
             sub_title="Goji Investments".to_string()
             title="Junior Software Engineer".to_string()
             bullet_points=vec![
-              "Worked with a senior developer and the cloud operations lead to design and run single sign-on (SSO) proof of concept using OAuth/OIDC and AWS Cognito"
+              "Worked with a senior developer and the cloud operations lead to design and run an SSO proof of concept using OAuth/OIDC and AWS Cognito"
                 .to_string(),
               "Designed, proposed, implemented, and documented SAML-based SSO for the customer and service logins across Goji's core platforms together with a senior developer, pair programming for large parts of the project"
                 .to_string(),
@@ -138,26 +140,37 @@ pub(crate) fn Home() -> impl IntoView {
         <h2>
           "What I hope you take away from reading this page is that I am ambitious, I learn quickly, and I love software development"
         </h2>
-        <h3 class="text-center">"...from procedural generation..."</h3>
+        <h3 class="text-center">"From web development..."</h3>
+        <Showcase
+          image_path="images/image-2.png".to_string()
+          description="A basic microservice architecture, written in Java using the Spring Framework, Postgres, Keycloak, etc."
+            .to_string()
+          link="https://github.com/kimgoetzke/practice-microservices".to_string()
+          is_light_text=true
+        />
+        <h3 class="text-center">"...to procedural generation..."</h3>
         <Showcase
           image_path="images/procedural-generation-1.png".to_string()
           description="A procedurally generated 2D, pixel art, tile set-based world, written in Rust using Bevy Engine"
             .to_string()
           link="https://github.com/kimgoetzke/procedural-generation-2".to_string()
+          is_light_text=true
         />
         <h3 class="text-center">"...to mobile development..."</h3>
         <Showcase
           image_path="/images/mobile-development-1.png".to_string()
-          description="A minimalist list app for Android which I use every day, written in C# using .NET MAUI and MongoDB Atlas and Realm"
+          description="A minimalist list app for Android which I still use every day, written in C# using .NET MAUI and MongoDB Atlas and Realm"
             .to_string()
           link="https://github.com/kimgoetzke/listem".to_string()
+          is_light_text=false
         />
         <h3 class="text-center">"...to game development..."</h3>
         <Showcase
           image_path="images/game-development-1.png".to_string()
-          description="A proof-of-concept for a top-down, 3D pixel art, action RPG using 2D sprites, developed in C# and Unity"
+          description="A proof-of-concept for 3D pixel art, action RPG using 2D sprites, developed in C# and Unity"
             .to_string()
           link="https://github.com/kimgoetzke/game-muffin".to_string()
+          is_light_text=true
         />
         <h3 class="text-center">"...and much more!"</h3>
       </section>

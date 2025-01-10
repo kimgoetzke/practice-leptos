@@ -3,9 +3,9 @@ mod pages;
 
 use crate::pages::*;
 use leptos::prelude::*;
+use leptos_meta::*;
 use leptos_router::components::*;
 use leptos_router::path;
-use leptos_meta::*;
 
 fn main() {
   _ = console_log::init_with_level(log::Level::Debug);
