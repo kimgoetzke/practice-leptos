@@ -96,8 +96,8 @@ pub(crate) fn Post() -> impl IntoView {
         let date = Date::new(&JsValue::from_f64(post.created_at));
         let formatted_date = format!("{}", date.to_locale_date_string("en-GB", &JsValue::undefined()));
         view! {
-          <div class="flex justify-center">
-            <div class="max-w-screen-2xl">
+          <div class="home-container">
+            <div class="content-section">
               <div class="flex overflow-hidden justify-center items-center mb-6 max-h-96 rounded-xl">
                 {post.image.as_ref().map(|img| view! { <img class="" src=img.clone() /> })}
               </div>
