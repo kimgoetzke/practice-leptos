@@ -35,7 +35,7 @@ main {
 }
 
 .content-section {
-    @apply w-full max-w-screen-2xl justify-start p-20;
+    @apply w-full max-w-screen-2xl justify-start p-6 md:p-20;
 }
 
 a {
@@ -70,10 +70,17 @@ span.tag {
     @apply font-m5 rounded-lg my-2 p-1 text-nord15 outline outline-1 outline-nord15 transform transition-all duration-200 hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
 }
 
+
 .content-section .showcase {
-    @apply relative;
-    left: -80px;
-    width: calc(100% + 160px);
+    left: -24px;
+    width: calc(100% + 48px);
+}
+
+@media (min-width: 768px) {
+    .content-section .showcase {
+        left: -80px;
+        width: calc(100% + 160px);
+    }
 }
 
 .speech-bubble {
