@@ -9,8 +9,8 @@ pub(crate) fn Home() -> impl IntoView {
   let text = vec![
     "Thanks for visiting.",
     "It's great to see you here.",
-    "This website is about me, Kim Goetzke.",
-    "I'm a London-based software developer.",
+    "This is a website about me, Kim Goetzke.",
+    "I'm a UK-based software developer.",
     "Scroll down to learn more about me.",
     "This website is built in Rust...",
     "...using Leptos, a Rust web framework.",
@@ -44,8 +44,8 @@ pub(crate) fn Home() -> impl IntoView {
       <section class="content-section">
         <h2>"I've been working as a web developer in financial technology"</h2>
         <p class="text-xl font-retro">
-          "My focus has been on "<span class="highlighted">"authentication- and authorisation"</span>"-related topics"
-          ", such as single sign-on (SSO), user provisioning, single logout (SLO), JWT or device deny listing, and permissions. I mostly work with "
+          "My focus has been on "<span class="highlighted">"authentication and authorisation"</span>" related topics"
+          ", such as single sign-on (SSO), single logout (SLO), trusted devices, user provisioning, and permissions. I mostly work with "
           <span class="highlighted">Java</span>", various "<span class="highlighted">AWS services</span>
           ", and occasionally with "<span class="highlighted">"TypeScript/NextJS"</span>"."
         </p>
@@ -135,33 +135,35 @@ pub(crate) fn Home() -> impl IntoView {
         </Timeline>
       </section>
       <section class="content-section">
-        <h2>
-          "What I hope you take away from reading this page is that I am ambitious, I learn quickly, and I love software development"
-        </h2>
-        <h3 class="text-center">"From web development..."</h3>
+        <h2>"I learn fast, I'm driven, and I love software development"</h2>
+        <h3 class="text-center">"...from web development..."</h3>
         <Showcase
-          image_path="images/image-2.png".to_string()
+          media_path="images/web-development-1.png".to_string()
+          media_props=MediaProperties::Contain
           description="A basic microservice architecture, written in Java using the Spring Framework, Postgres, Keycloak, etc."
             .to_string()
           link="https://github.com/kimgoetzke/practice-microservices".to_string()
         />
         <h3 class="text-center">"...to procedural generation..."</h3>
         <Showcase
-          image_path="images/procedural-generation-1.png".to_string()
+          media_path="images/procedural-generation-1.png".to_string()
+          media_props=MediaProperties::Cover
           description="A procedurally generated 2D, pixel art, tile set-based world, written in Rust using Bevy Engine"
             .to_string()
           link="https://github.com/kimgoetzke/procedural-generation-2".to_string()
         />
         <h3 class="text-center">"...to mobile development..."</h3>
         <Showcase
-          image_path="/images/mobile-development-1.png".to_string()
+          media_path="/images/mobile-development-1.png".to_string()
+          media_props=MediaProperties::Cover
           description="A minimalist list app for Android which I still use every day, written in C# using .NET MAUI and MongoDB Atlas and Realm"
             .to_string()
           link="https://github.com/kimgoetzke/listem".to_string()
         />
         <h3 class="text-center">"...to game development..."</h3>
         <Showcase
-          image_path="images/game-development-1.png".to_string()
+          media_path="images/game-development-1.png".to_string()
+          media_props=MediaProperties::Cover
           description="A proof-of-concept for 3D pixel art, action RPG using 2D sprites, developed in C# and Unity"
             .to_string()
           link="https://github.com/kimgoetzke/game-muffin".to_string()
@@ -219,7 +221,7 @@ fn animate_text(text: Vec<String>, set_current_text: WriteSignal<String>) {
         }
       }
     },
-    50,
+    40,
   );
 }
 

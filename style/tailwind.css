@@ -79,6 +79,10 @@ span.highlighted {
     width: calc(100% + 48px);
 }
 
+.bullet-point::marker {
+    @apply text-nord10;
+}
+
 @media (min-width: 768px) {
     .content-section .showcase {
         left: -80px;
