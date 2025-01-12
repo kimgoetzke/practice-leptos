@@ -36,7 +36,7 @@ pub(crate) fn Home() -> impl IntoView {
           <img src="/images/avatar-1.gif" class="w-52 h-52 rounded-full drop-shadow-xl" />
         </div>
         <Show when=move || !has_scrolled.get() fallback=|| ()>
-          <div class="bouncing-arrow hover:bg-nord1" on:click=move |_| scroll_down()>
+          <div class="hover:opacity-90 bouncing-arrow hover:bg-nord1" on:click=move |_| scroll_down()>
             <lucide_leptos::ArrowDown size=48 />
           </div>
         </Show>
@@ -139,7 +139,7 @@ pub(crate) fn Home() -> impl IntoView {
         <div class="mb-16">
           <CardShowcase cards=vec![
             Card {
-              media_path: "/images/web-development-2.png".to_string(),
+              media_path: "/images/web-development-1.png".to_string(),
               media_props: MediaProperties::Contain,
               rotation: "rotate-6".to_string(),
               description: "A basic microservice architecture, written in Java using the Spring Framework, Postgres, Keycloak, etc."
@@ -154,14 +154,6 @@ pub(crate) fn Home() -> impl IntoView {
                 .to_string(),
               link: "https://github.com/kimgoetzke/rusteroids".to_string(),
             },
-            Card {
-              media_path: "/images/mobile-development-1.png".to_string(),
-              media_props: MediaProperties::Cover,
-              rotation: "rotate-3".to_string(),
-              description: "A minimalist list app for Android, written in C# using .NET MAUI and MongoDB Atlas and Realm"
-                .to_string(),
-              link: "https://github.com/kimgoetzke/listem".to_string(),
-            },
           ] />
           <CardShowcase cards=vec![
             Card {
@@ -170,7 +162,7 @@ pub(crate) fn Home() -> impl IntoView {
               rotation: "-rotate-6".to_string(),
               description: "A procedurally generated 2D, pixel art, tile set-based world, written in Rust using Bevy Engine"
                 .to_string(),
-              link: "".to_string(),
+              link: "https://github.com/kimgoetzke/procedural-generation-2".to_string(),
             },
             Card {
               media_path: "/images/game-development-1.png".to_string(),
@@ -181,8 +173,32 @@ pub(crate) fn Home() -> impl IntoView {
               link: "https://github.com/kimgoetzke/game-muffin".to_string(),
             },
           ] />
+          <CardShowcase cards=vec![
+            Card {
+              media_path: "/images/mobile-development-1.png".to_string(),
+              media_props: MediaProperties::Cover,
+              rotation: "rotate-3".to_string(),
+              description: "A minimalist list app for Android, written in C# using .NET MAUI and MongoDB Atlas and Realm"
+                .to_string(),
+              link: "https://github.com/kimgoetzke/listem".to_string(),
+            },
+          ] />
         </div>
       </section>
+      <div class="flex justify-center items-center p-4">
+        <p class="inline-flex relative space-x-1 text-xs">
+          <span>"Built with "</span>
+          <lucide_leptos::Heart size=16 color="#b48ead" />
+          <span>"using"</span>
+          <a href="https://www.rust-lang.org/" class="group">
+            <span class="align-baseline underlined">"Rust"</span>
+          </a>
+          <span class="align-middle">"and"</span>
+          <a href="https://leptos.dev/" class="group">
+            <span class="align-baseline underlined">"Leptos"</span>
+          </a>
+        </p>
+      </div>
     </div>
   }
 }

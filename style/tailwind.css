@@ -35,7 +35,7 @@ main {
 }
 
 .content-section {
-    @apply w-full max-w-screen-2xl justify-start p-6 md:p-20;
+    @apply w-full max-w-screen-lg justify-start p-6 md:p-20;
 }
 
 a {
@@ -47,7 +47,7 @@ h1 {
 }
 
 h2 {
-    @apply text-6xl font-bold font-m5 bg-clip-text text-transparent bg-gradient-to-r from-nord8 via-nord9 to-nord10  pt-2 pb-4;
+    @apply text-5xl font-bold font-m5 bg-clip-text text-transparent bg-gradient-to-r from-nord8 via-nord9 to-nord10  pt-2 pb-4;
 }
 
 h3 {
