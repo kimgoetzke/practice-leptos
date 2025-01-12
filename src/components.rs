@@ -89,24 +89,25 @@ pub(crate) fn Showcase(media_path: String, media_props: MediaProperties, descrip
     MediaProperties::Cover => "object-cover w-full",
   };
   view! {
-    <div class="overflow-hidden relative justify-self-start self-start place-content-start mb-8 w-full h-96 showcase group">
-      <div class="absolute inset-0 bg-center bg-cover" style="background-image: url('/images/image-1.png');"></div>
-      <img
-        class=format!(
-          "relative h-full opacity-90 transition-all 2xl:rounded-xl group-hover:opacity-100 group-hover:filter-none {}",
-          media_props,
-        )
-        src=media_path.clone()
-      />
-      <div class="absolute top-0 right-0 p-2 m-8 max-w-screen-md text-right rounded-xl transition-transform group-hover:right-0 group-hover:scale-105 bg-nord0/50 backdrop-blur-sm duration-250">
-        <p class="text-3xl font-m5 text-nord4">{description}</p>
-      </div>
-      <a href=link.clone() rel="external" target="tab">
+    <a href=link.clone() rel="external" target="tab">
+      <div class="overflow-hidden relative justify-self-start self-start place-content-start mb-8 w-full h-96 showcase group">
+        <div class="absolute inset-0 bg-center bg-cover" style="background-image: url('/images/image-1.png');"></div>
+        <img
+          class=format!(
+            "relative h-full opacity-90 transition-all 2xl:rounded-xl group-hover:opacity-100 group-hover:filter-none {}",
+            media_props,
+          )
+          src=media_path.clone()
+        />
+        <div class="absolute top-0 right-0 p-2 m-8 max-w-screen-md text-right rounded-xl transition-transform group-hover:right-0 group-hover:scale-105 bg-nord0/50 backdrop-blur-sm duration-250">
+          <p class="text-3xl font-m5 text-nord4">{description}</p>
+        </div>
+
         <div class="inline-flex absolute right-0 bottom-0 items-center m-8 space-x-5 default-button">
           <span>Read more on</span>
           <lucide_leptos::Github />
         </div>
-      </a>
-    </div>
+      </div>
+    </a>
   }
 }

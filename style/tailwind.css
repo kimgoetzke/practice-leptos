@@ -59,7 +59,7 @@ p {
 }
 
 .default-button {
-    @apply rounded-sm font-retro text-xl p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
+    @apply rounded-sm font-retro text-xl p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 group-hover:outline group-hover:outline-nord8 group-hover:bg-nord0 group-hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
 }
 
 span.underlined {
