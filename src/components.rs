@@ -22,19 +22,31 @@ pub(crate) fn TimelineEntry(
   date: String,
   sub_title: String,
   title: String,
+  url: Option<String>,
   bullet_points: Vec<String>,
-  icon: impl IntoView,
 ) -> impl IntoView {
   view! {
     <div class="relative">
       <div class="items-center mb-3 md:flex md:space-x-4">
         <div class="flex items-center space-x-4 md:space-x-2 md:space-x-reverse">
-          <div class="flex justify-center items-center w-10 h-10 bg-white rounded-full shadow md:order-1">{icon}</div>
+          <div class="flex justify-center ml-4 md:ml-[17px] items-center w-2 h-2 bg-nord4 md:order-1"></div>
           <time class="text-2xl md:w-28 font-m5 text-nord10">{date}</time>
         </div>
         <div class="ml-14 text-xl font-retro text-nord4">
-          <span class="mr-4 text-nord4 text-nord8">{sub_title}</span>
-          {title}
+          {move || {
+            let sub_title = sub_title.clone();
+            let url = url.clone();
+            if let Some(url) = url {
+              return view! {
+                <a href=url class="group">
+                  <span class="mr-4 underlined text-nord15 hover:text-nord8">{sub_title}</span>
+                </a>
+              }
+                .into_any()
+            } else {
+              return view! { <span class="mr-4 text-nord15">{sub_title}</span> }.into_any()
+            }
+          }} {title}
         </div>
       </div>
       {move || {
@@ -70,7 +82,7 @@ pub(crate) fn Showcase(image_path: String, description: String, link: String) ->
   view! {
     <div class="relative justify-self-start self-start place-content-start mb-8 w-full h-96 showcase group">
       <img class="object-cover w-full h-full group-hover:filter-none" src=image_path.clone() />
-      <div class="absolute top-0 right-0 p-2 m-8 max-w-screen-md text-right rounded-xl bg-nord0/50 backdrop-blur-sm">
+      <div class="absolute top-0 right-0 p-2 m-8 max-w-screen-md text-right rounded-xl transition-all transition-transform group-hover:right-0 group-hover:scale-105 bg-nord0/50 backdrop-blur-sm duration-250">
         <p class="text-3xl font-m5 text-nord4">{description}</p>
       </div>
       <a href=link.clone() rel="external" target="tab">

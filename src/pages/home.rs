@@ -1,5 +1,6 @@
 use crate::components::*;
 use leptos::prelude::*;
+use leptos::web_sys;
 use leptos_use::{use_interval_fn, use_window_scroll};
 use std::time::Duration;
 
@@ -17,10 +18,11 @@ pub(crate) fn Home() -> impl IntoView {
   .into_iter()
   .map(String::from)
   .collect::<Vec<String>>();
-  let (has_scrolled, set_has_scrolled) = signal(false);
-  let (current_text, set_current_text) = signal(String::new());
 
+  let (has_scrolled, set_has_scrolled) = signal(false);
   update_has_scrolled(set_has_scrolled);
+
+  let (current_text, set_current_text) = signal(String::new());
   animate_text(text, set_current_text);
 
   view! {
@@ -34,8 +36,8 @@ pub(crate) fn Home() -> impl IntoView {
           <img src="/images/avatar-1.gif" class="w-52 h-52 rounded-full drop-shadow-xl" />
         </div>
         <Show when=move || !has_scrolled.get() fallback=|| ()>
-          <div class="bouncing-arrow">
-            <lucide_leptos::ArrowDown color="#88C0D0" size=48 />
+          <div class="bouncing-arrow hover:bg-nord1" on:click=move |_| scroll_down()>
+            <lucide_leptos::ArrowDown size=48 />
           </div>
         </Show>
       </section>
@@ -52,16 +54,17 @@ pub(crate) fn Home() -> impl IntoView {
             date="Jan 2025".to_string()
             sub_title="Goji Investments".to_string()
             title="Senior Software Engineer".to_string()
+            url=Some("https://www.goji.investments/".to_string())
             bullet_points=vec![
               "Goji is financial technology company, providing a white label investment platform to service and distributing private funds at scale"
                 .to_string(),
             ]
-            icon=view! { <lucide_leptos::Rabbit color="#8FBCBB" /> }
           />
           <TimelineEntry
             date="Jan 2024".to_string()
             sub_title="Goji Investments".to_string()
             title="Software Engineer".to_string()
+            url=Some("https://www.goji.investments/".to_string())
             bullet_points=vec![
               "Independently designed and implemented an automated, daily validation mechanism for authentication-related certificates (first and third party) that checks upcoming expiration dates and integrates with alerting and communication tools to create alerts of varying severity"
                 .to_string(),
@@ -75,12 +78,12 @@ pub(crate) fn Home() -> impl IntoView {
               "Communicated with technical/product/executive-level staff of customers implementing SSO and SLO with Goji"
                 .to_string(),
             ]
-            icon=view! { <lucide_leptos::Rat color="#8FBCBB" /> }
           />
           <TimelineEntry
             date="Mar 2023".to_string()
             sub_title="Goji Investments".to_string()
             title="Junior Software Engineer".to_string()
+            url=Some("https://www.goji.investments/".to_string())
             bullet_points=vec![
               "Worked with a senior developer and the cloud operations lead to design and run an SSO proof of concept using OAuth/OIDC and AWS Cognito"
                 .to_string(),
@@ -89,7 +92,6 @@ pub(crate) fn Home() -> impl IntoView {
               "Communicated directly with product/technical staff of customers using SSO during testing/implementation phase"
                 .to_string(),
             ]
-            icon=view! { <lucide_leptos::Snail color="#8FBCBB" /> }
           />
         </Timeline>
       </section>
@@ -106,29 +108,29 @@ pub(crate) fn Home() -> impl IntoView {
             date="Jul 2021 - Apr 2023".to_string()
             sub_title="Blissgrowth".to_string()
             title="Partner and Co-founder".to_string()
+            url=Some("https://www.blissgrowth.com/".to_string())
             bullet_points=Vec::new()
-            icon=view! { <lucide_leptos::BriefcaseBusiness color="#8FBCBB" /> }
           />
           <TimelineEntry
             date="May 2021 - Sep 2022".to_string()
             sub_title="Screenloop".to_string()
             title="Interim COO/CFO".to_string()
+            url=Some("https://www.screenloop.com/".to_string())
             bullet_points=Vec::new()
-            icon=view! { <lucide_leptos::BriefcaseBusiness color="#8FBCBB" /> }
           />
           <TimelineEntry
             date="Dec 2019 - May 2021".to_string()
             sub_title="Growth Street".to_string()
             title="COO and Executive Director (SMF3)".to_string()
+            url=None
             bullet_points=Vec::new()
-            icon=view! { <lucide_leptos::BriefcaseBusiness color="#8FBCBB" /> }
           />
           <TimelineEntry
             date="Feb 2017 - Dec 2019".to_string()
             sub_title="Growth Street".to_string()
             title="Operations Director".to_string()
+            url=None
             bullet_points=Vec::new()
-            icon=view! { <lucide_leptos::BriefcaseBusiness color="#8FBCBB" /> }
           />
         </Timeline>
       </section>
@@ -175,6 +177,14 @@ fn update_has_scrolled(set_has_scrolled: WriteSignal<bool>) {
   Effect::new(move |_| {
     set_has_scrolled.set(y.get() > 10.0);
   });
+}
+
+fn scroll_down() {
+  let window = web_sys::window().unwrap();
+  let options = web_sys::ScrollToOptions::new();
+  options.set_top(window.inner_height().unwrap().as_f64().unwrap());
+  options.set_behavior(web_sys::ScrollBehavior::Smooth);
+  window.scroll_with_scroll_to_options(&options);
 }
 
 fn animate_text(text: Vec<String>, set_current_text: WriteSignal<String>) {

@@ -59,7 +59,7 @@ p {
 }
 
 .default-button {
-    @apply rounded-lg font-retro text-xl p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
+    @apply rounded-sm font-retro text-xl p-2 text-nord4 font-bold bg-nord15 transform transition-all duration-200 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13;
 }
 
 span.underlined {
@@ -119,7 +119,7 @@ span.highlighted {
 }
 
 .bouncing-arrow {
-    @apply absolute bottom-4 flex justify-center w-full;
+    @apply absolute bottom-0 pb-1 pt-2 flex justify-center w-full text-nord15 hover:font-black hover:cursor-pointer hover:text-nord10;
 }
 
 .bouncing-arrow svg {
@@ -127,14 +127,14 @@ span.highlighted {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+    20%, 50%, 70% {
         transform: translateY(0);
     }
     40% {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
     }
     60% {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
     }
 }
 
