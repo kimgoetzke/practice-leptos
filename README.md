@@ -1,10 +1,12 @@
-# Practice WASM & Leptos
+# Practice Leptos
 
-This repository contains a simple Rust WASM frontend project to practice using the Leptos library.
+This repository contains a simple portfolio website written in Rust and using Leptos, a WebAssembly framework for Rust.
+Tailwind CSS is used for responsive styling. The project is built using Trunk. The purpose of this project was to
+explore using Rust for web development.
 
 ## Demo
 
-![Screenshots 1](./assets/demo.gif)
+![Demo](./assets/demo.gif)
 
 ## Attribution
 

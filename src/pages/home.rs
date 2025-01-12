@@ -135,40 +135,53 @@ pub(crate) fn Home() -> impl IntoView {
         </Timeline>
       </section>
       <section class="content-section">
-        <h2>"I learn fast, I'm driven, and I love software development"</h2>
-        <h3 class="text-center">"...from web development..."</h3>
-        <Showcase
-          media_path="images/web-development-1.png".to_string()
-          media_props=MediaProperties::Contain
-          description="A basic microservice architecture, written in Java using the Spring Framework, Postgres, Keycloak, etc."
-            .to_string()
-          link="https://github.com/kimgoetzke/practice-microservices".to_string()
-        />
-        <h3 class="text-center">"...to procedural generation..."</h3>
-        <Showcase
-          media_path="images/procedural-generation-1.png".to_string()
-          media_props=MediaProperties::Cover
-          description="A procedurally generated 2D, pixel art, tile set-based world, written in Rust using Bevy Engine"
-            .to_string()
-          link="https://github.com/kimgoetzke/procedural-generation-2".to_string()
-        />
-        <h3 class="text-center">"...to mobile development..."</h3>
-        <Showcase
-          media_path="/images/mobile-development-1.png".to_string()
-          media_props=MediaProperties::Cover
-          description="A minimalist list app for Android which I still use every day, written in C# using .NET MAUI and MongoDB Atlas and Realm"
-            .to_string()
-          link="https://github.com/kimgoetzke/listem".to_string()
-        />
-        <h3 class="text-center">"...to game development..."</h3>
-        <Showcase
-          media_path="images/game-development-1.png".to_string()
-          media_props=MediaProperties::Cover
-          description="A proof-of-concept for 3D pixel art, action RPG using 2D sprites, developed in C# and Unity"
-            .to_string()
-          link="https://github.com/kimgoetzke/game-muffin".to_string()
-        />
-        <h3 class="text-center">"...and much more!"</h3>
+        <h2 class="mb-16">"I learn fast, I'm driven, and I love software development"</h2>
+        <div class="mb-16">
+          <CardShowcase cards=vec![
+            Card {
+              media_path: "/images/web-development-2.png".to_string(),
+              media_props: MediaProperties::Contain,
+              rotation: "rotate-6".to_string(),
+              description: "A basic microservice architecture, written in Java using the Spring Framework, Postgres, Keycloak, etc."
+                .to_string(),
+              link: "https://github.com/kimgoetzke/practice-microservices".to_string(),
+            },
+            Card {
+              media_path: "/images/game-development-2.gif".to_string(),
+              media_props: MediaProperties::Cover,
+              rotation: "-rotate-1".to_string(),
+              description: "My first time writing Rust - a basic Asteroids-like game written using Bevy Engine"
+                .to_string(),
+              link: "https://github.com/kimgoetzke/rusteroids".to_string(),
+            },
+            Card {
+              media_path: "/images/mobile-development-1.png".to_string(),
+              media_props: MediaProperties::Cover,
+              rotation: "rotate-3".to_string(),
+              description: "A minimalist list app for Android, written in C# using .NET MAUI and MongoDB Atlas and Realm"
+                .to_string(),
+              link: "https://github.com/kimgoetzke/listem".to_string(),
+            },
+          ] />
+          <CardShowcase cards=vec![
+            Card {
+              media_path: "/images/procedural-generation-2.gif".to_string(),
+              media_props: MediaProperties::Cover,
+              rotation: "-rotate-6".to_string(),
+              description: "A procedurally generated 2D, pixel art, tile set-based world, written in Rust using Bevy Engine"
+                .to_string(),
+              link: "".to_string(),
+            },
+            Card {
+              media_path: "/images/game-development-1.png".to_string(),
+              media_props: MediaProperties::Cover,
+              rotation: "rotate-2".to_string(),
+              description: "A proof-of-concept for 3D pixel art, action RPG using 2D sprites, developed in C# and Unity"
+                .to_string(),
+              link: "https://github.com/kimgoetzke/game-muffin".to_string(),
+            },
+          ] />
+        </div>
       </section>
     </div>
   }

@@ -45,6 +45,9 @@ module.exports = {
                 "3xl": "2000px",
                 "4xl": "3000px",
             },
+            scale: {
+                '200': '2.0',
+            }
         },
     },
     plugins: [require("tailwindcss-animate")],
