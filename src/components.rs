@@ -77,8 +77,6 @@ pub fn BulletPoints(children: ChildrenFragment) -> impl IntoView {
   view! { <ul class="pl-4 mb-2 list-outside text-md list-[square] text-nord4">{children}</ul> }
 }
 
-
-
 pub(crate) enum MediaProperties {
   Contain,
   Cover,
@@ -126,9 +124,9 @@ pub(crate) fn CardShowcase(cards: Vec<Card>) -> impl IntoView {
                   <div class="absolute top-0 right-0 pr-2 pl-2 w-full rounded-t-xl opacity-0 transition-all duration-300 group-hover:right-0 group-hover:opacity-100 bg-nord0/50 backdrop-blur-sm">
                     <p class="text-2xl sm:text-4xl lg:text-sm 2xl:text-xl font-m5 text-nord4">{card.description}</p>
                   </div>
-                  <div class="inline-flex absolute right-0 bottom-0 items-center px-2 m-4 space-x-5 text-xl font-bold rounded-sm opacity-0 transition-all transition-opacity duration-200 duration-300 transform lg:text-xs xl:text-xs 2xl:text-sm group-hover:opacity-100 font-retro bg-nord15 group-hover:outline group-hover:outline-nord8 group-hover:bg-nord0 group-hover:text-nord8 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13">
+                  <div class="inline-flex absolute right-0 bottom-0 items-center px-2 m-4 space-x-5 text-xl font-bold rounded-sm opacity-0 transition-all duration-300 transform lg:text-xs xl:text-xs 2xl:text-sm group-hover:opacity-100 outline-2 font-retro bg-nord15 group-hover:outline group-hover:outline-nord8 group-hover:bg-nord0 group-hover:text-nord8 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13">
                     <span>Read more on</span>
-                    <lucide_leptos::Github />
+                    <lucide_leptos::Github size=16 />
                   </div>
                 </div>
               </a>
@@ -139,4 +137,3 @@ pub(crate) fn CardShowcase(cards: Vec<Card>) -> impl IntoView {
     </div>
   }
 }
-
