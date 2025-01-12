@@ -6,13 +6,13 @@ authors = ["Kim Goetzke"]
 
 [dependencies]
 leptos = { version = "0.7.3", features = ["csr"] }
-leptos-use = { version = "0.15.2", features = ["use_interval_fn", "use_window_scroll"] }
+leptos-use = { version = "0.15.3", features = ["use_interval_fn", "use_window_scroll"] }
 leptos_router = { version = "0.7.3" }
 leptos_meta = { version = "0.7" }
-lucide-leptos = "1.1.0"
-console_error_panic_hook = "0.1.7"
-console_log = "1.0.0"
-log = "0.4.22"
+lucide-leptos = { version = "1.1.0" }
+console_error_panic_hook = { version = "0.1.7" }
+console_log = { version = "1.0.0" }
+log = { version = "0.4.22" }
 
 [profile.release]
 opt-level = 'z'
