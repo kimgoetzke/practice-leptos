@@ -28,7 +28,7 @@ fn App() -> impl IntoView {
             <div class="navbar-text-item">Home</div>
           </A>
           // <A href="/blog">
-          // <div class="navbar-text-item">Blog</div>
+          //   <div class="navbar-text-item">Blog</div>
           // </A>
           <A href="https://github.com/kimgoetzke">
             <div class="navbar-item">

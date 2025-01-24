@@ -19,14 +19,15 @@ pub(crate) fn Home() -> impl IntoView {
   .map(String::from)
   .collect::<Vec<String>>();
 
+  let (_, y) = use_window_scroll();
   let (has_scrolled, set_has_scrolled) = signal(false);
-  update_has_scrolled(set_has_scrolled);
+  update_has_scrolled(set_has_scrolled, y);
 
   let (current_text, set_current_text) = signal(String::new());
   animate_text(text, set_current_text);
 
   view! {
-    <div class="home-container">
+    <div class="home-container" style=move || format!("background-position-y: {}px;", (y.get() - 100.) * 0.4)>
       <section class="-mt-16 full-height-section">
         <h1>"Welcome!"</h1>
         <div class="speech-bubble">
@@ -203,8 +204,7 @@ pub(crate) fn Home() -> impl IntoView {
   }
 }
 
-fn update_has_scrolled(set_has_scrolled: WriteSignal<bool>) {
-  let (_, y) = use_window_scroll();
+fn update_has_scrolled(set_has_scrolled: WriteSignal<bool>, y: Signal<f64>) {
   Effect::new(move |_| {
     set_has_scrolled.set(y.get() > 10.0);
   });

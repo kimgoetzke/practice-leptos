@@ -3,14 +3,16 @@ use leptos::prelude::*;
 use leptos::wasm_bindgen::JsValue;
 use leptos::web_sys::js_sys::Date;
 use leptos_router::components::*;
+use leptos_use::use_window_scroll;
 
 #[component]
 pub(crate) fn Blog() -> impl IntoView {
+  let (_, y) = use_window_scroll();
   view! {
-    <div class="home-container">
+    <div class="home-container" style=move || format!("background-position-y: {}px;", (y.get() - 100.) * 0.4)>
       <section class="content-section">
         <h2>Blog</h2>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {move || {
             let posts = crate::pages::blog_post::BLOG_POSTS.clone();
             posts

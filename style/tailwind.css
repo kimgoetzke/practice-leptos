@@ -27,7 +27,9 @@ main {
 }
 
 .home-container {
-    @apply flex flex-col items-center justify-center;
+    /*noinspection CssUnknownTarget*/
+    background-image: url('/images/background.png');
+    @apply flex flex-col items-center justify-center bg-repeat-y bg-right bg-contain;
 }
 
 .full-height-section {
@@ -159,11 +161,11 @@ span.highlighted {
 }
 
 /* Required to make sure top/first elements are not hidden by navbar */
-@media (min-width: 640px) {
+/*@media (min-width: 640px) {
     main {
-        @apply mt-16;
+        @apply mt-0;
     }
-}
+}*/
 
 @layer base {
     :root {
