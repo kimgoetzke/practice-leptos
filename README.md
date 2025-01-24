@@ -1,8 +1,9 @@
 # Practice Leptos
 
-This repository contains a simple portfolio website written in Rust and using Leptos, a WebAssembly framework for Rust.
-Tailwind CSS is used for responsive styling. The project is built using Trunk. The purpose of this project was to
-explore using Rust for web development.
+This repository contains a simple, fully client-side rendered portfolio website written in Rust
+with [Leptos](https://leptos.dev/), a web development framework for Rust that uses WebAssembly, and Tailwind CSS. The
+project is built using [Trunk](https://trunkrs.dev/). The purpose of this project was to explore using Rust for web
+development.
 
 ## Demo
 
