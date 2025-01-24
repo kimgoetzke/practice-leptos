@@ -45,10 +45,10 @@ pub(crate) fn Blog() -> impl IntoView {
                       <p class="mb-4 text-nord6">{post.content.clone()}</p>
                     </div>
                     <div class="p-4 mt-auto">
-                      <p class="mb-2 text-xl text-nord3">
+                      <p class="mb-2 text-md text-nord3">
                         {post.tags.iter().map(|tag| view! { <Tag tag=tag.clone() /> }).collect::<Vec<_>>()}
                       </p>
-                      <p class="text-2xl font-m5 text-nord3">"Created: " {formatted_date}</p>
+                      <p class="text-lg font-tiny text-nord3">"Created: " {formatted_date}</p>
                     </div>
                   </div>
                 }

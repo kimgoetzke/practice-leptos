@@ -30,9 +30,9 @@ pub(crate) fn TimelineEntry(
       <div class="items-center mb-3 md:flex md:space-x-4">
         <div class="flex items-center space-x-8 md:space-x-2 md:space-x-reverse">
           <div class="flex justify-center items-center ml-4 w-2 h-2 md:order-1 bg-nord3 md:ml-[0.5rem]"></div>
-          <time class="text-2xl md:w-28 font-m5 text-nord10">{date}</time>
+          <time class="text-xl md:w-28 font-tiny text-nord10">{date}</time>
         </div>
-        <div class="ml-14 text-xl font-retro text-nord4">
+        <div class="ml-14 text-xl font-tiny text-nord4">
           {move || {
             let sub_title = sub_title.clone();
             let url = url.clone();
@@ -122,9 +122,9 @@ pub(crate) fn CardShowcase(cards: Vec<Card>) -> impl IntoView {
                     src=card.media_path
                   />
                   <div class="absolute top-0 right-0 pr-2 pl-2 w-full rounded-t-xl opacity-0 transition-all duration-300 group-hover:right-0 group-hover:opacity-100 bg-nord0/50 backdrop-blur-sm">
-                    <p class="text-2xl sm:text-4xl lg:text-sm 2xl:text-xl font-m5 text-nord4">{card.description}</p>
+                    <p class="text-md md:text-md lg:text-sm font-silkscreen text-nord4">{card.description}</p>
                   </div>
-                  <div class="inline-flex absolute right-0 bottom-0 items-center px-2 m-4 space-x-5 text-xl font-bold rounded-sm opacity-0 transition-all duration-300 transform lg:text-xs xl:text-xs 2xl:text-sm group-hover:opacity-100 outline-2 font-retro bg-nord15 group-hover:outline group-hover:outline-nord8 group-hover:bg-nord0 group-hover:text-nord8 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13">
+                  <div class="inline-flex absolute right-0 bottom-0 items-center px-2 m-4 space-x-2 text-xl font-bold rounded-sm opacity-0 transition-all duration-300 transform lg:text-xs xl:text-xs 2xl:text-sm group-hover:opacity-100 outline-2 font-tiny bg-nord15 group-hover:outline group-hover:outline-nord8 group-hover:bg-nord0 group-hover:text-nord8 hover:outline hover:outline-nord8 hover:bg-nord0 hover:text-nord8 active:bg-nord2 active:outline-nord13 active:text-nord13">
                     <span>Read more on</span>
                     <lucide_leptos::Github size=16 />
                   </div>

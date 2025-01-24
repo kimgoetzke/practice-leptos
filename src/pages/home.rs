@@ -31,7 +31,7 @@ pub(crate) fn Home() -> impl IntoView {
       <section class="-mt-16 full-height-section">
         <h1>"Welcome!"</h1>
         <div class="speech-bubble">
-          <div class="typewriter">{' '}<p class="font-retro">{move || current_text.get()}</p></div>
+          <div class="typewriter">{' '}<p class="font-tiny text-2xl">{move || current_text.get()}</p></div>
         </div>
         <div>
           <img src="/images/avatar-1.gif" class="w-52 h-52 rounded-full drop-shadow-xl" />
@@ -44,7 +44,7 @@ pub(crate) fn Home() -> impl IntoView {
       </section>
       <section class="content-section">
         <h2>"I've been working as a web developer in financial technology"</h2>
-        <p class="text-xl font-retro">
+        <p class="text-xl font-tiny">
           "My focus has been on "<span class="highlighted">"authentication and authorisation"</span>" related topics"
           ", such as single sign-on (SSO), single logout (SLO), trusted devices, user provisioning, and permissions. I mostly work with "
           <span class="highlighted">Java</span>", various "<span class="highlighted">AWS services</span>
@@ -102,7 +102,7 @@ pub(crate) fn Home() -> impl IntoView {
       <section class="content-section">
         <h2 class="text-right">"Previously, I was a startup executive"</h2>
         <a href="https://uk.linkedin.com/in/kimgoetzke" rel="external" target="tab" class="flex justify-end">
-          <div class="inline-flex items-center space-x-5 text-right default-button">
+          <div class="inline-flex items-center space-x-2 text-right default-button">
             <span>Read more on</span>
             <lucide_leptos::Linkedin />
           </div>

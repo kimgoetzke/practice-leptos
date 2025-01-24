@@ -33,8 +33,9 @@ module.exports = {
                 'nord15': '#B48EAD',
             },
             fontFamily: {
-                m5: ['m5x7', 'sans-serif'],
-                retro: ['RETRO_SPACE_INV', 'sans-serif'],
+                silkscreen: ['"Silkscreen"', 'serif'],
+                micro5: ['"Micro 5"', 'serif'],
+                tiny: ['"Tiny5"', 'serif'],
             },
             borderRadius: {
                 lg: "var(--radius)",
