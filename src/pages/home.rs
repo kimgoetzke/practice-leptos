@@ -48,7 +48,8 @@ pub(crate) fn Home() -> impl IntoView {
           "My focus has been on "<span class="highlighted">"authentication and authorisation"</span>" related topics"
           ", such as single sign-on (SSO), single logout (SLO), trusted devices, user provisioning, and permissions. I mostly work with "
           <span class="highlighted">Java</span>", various "<span class="highlighted">AWS services</span>
-          ", and occasionally with "<span class="highlighted">"TypeScript/NextJS"</span>"."
+          ", and occasionally with "<span class="highlighted">"TypeScript/NextJS"</span>" and "
+          <span class="highlighted">"Golang"</span>"."
         </p>
         <Timeline>
           <TimelineEntry
@@ -59,6 +60,8 @@ pub(crate) fn Home() -> impl IntoView {
             bullet_points=vec![
               "Goji is financial technology company, providing a white label investment platform to service and distributing private funds at scale"
                 .to_string(),
+              "Designed and ran proof-of-concept (POC) for using AWS API Gateway with a custom authoriser, written in Golang, to replace proprietary gateway; infrastructure managed with Terraform"
+                .to_string(),
             ]
           />
           <TimelineEntry
@@ -67,7 +70,7 @@ pub(crate) fn Home() -> impl IntoView {
             title="Software Engineer".to_string()
             url=Some("https://www.goji.investments/".to_string())
             bullet_points=vec![
-              "Independently designed and implemented an automated, daily validation mechanism for authentication-related certificates (first and third party) that checks upcoming expiration dates and integrates with alerting and communication tools to create alerts of varying severity"
+              "Independently designed and implemented an automated, daily validation mechanism for authentication-related certificates (first and third party) that evaluates upcoming expiration dates and integrates with alerting and communication tools to create alerts of varying severity"
                 .to_string(),
               "Worked on various continuous improvements to Goji's proprietary permission system and deprecated legacy role-based logic which involved several sensitive migrations and data fixes"
                 .to_string(),
@@ -86,7 +89,7 @@ pub(crate) fn Home() -> impl IntoView {
             title="Junior Software Engineer".to_string()
             url=Some("https://www.goji.investments/".to_string())
             bullet_points=vec![
-              "Worked with a senior developer and the cloud operations lead to design and run an SSO proof of concept using OAuth/OIDC and AWS Cognito"
+              "Worked with a senior developer and the cloud operations lead to design and run an SSO POC using OAuth/OIDC and AWS Cognito"
                 .to_string(),
               "Designed, proposed, implemented, and documented SAML-based SSO for the customer and service logins across Goji's core platforms together with a senior developer, pair programming for large parts of the project"
                 .to_string(),
@@ -182,6 +185,14 @@ pub(crate) fn Home() -> impl IntoView {
               description: "A minimalist list app for Android, written in C# using .NET MAUI and MongoDB Atlas and Realm"
                 .to_string(),
               link: "https://github.com/kimgoetzke/listem".to_string(),
+            },
+            Card {
+              media_path: "/images/web-development-2.png".to_string(),
+              media_props: MediaProperties::Contain,
+              rotation: "-rotate-1".to_string(),
+              description: "A mini Golang web application that uses JWTs with a public JWKS endpoint for authentication"
+                .to_string(),
+              link: "https://github.com/kimgoetzke/practice-go-jwt-auth".to_string(),
             },
           ] />
         </div>
