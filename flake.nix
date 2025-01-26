@@ -1,6 +1,6 @@
 {
   # Thank you, https://github.com/loophp/rust-shell! Most of this is a copy of it.
-  description = "A Rust development shells that's also Bevy-ready";
+  description = "A Rust development shell";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     rust-overlay.url = "github:oxalica/rust-overlay";
@@ -122,7 +122,6 @@
                 shellHook = ''
                   export CARGO_PROFILE_DEV_BUILD_OVERRIDE_DEBUG=true
                   export PATH=$PATH:''${CARGO_HOME:-~/.cargo}/bin
-                  export PATH=$PATH:''${RUSTUP_HOME:-~/.rustup}/toolchains/$RUSTC_VERSION-x86_64-unknown-linux-gnu/bin/
                   echo ""
                   echo "Welcome to your Rust WASM environment!" | ${pkgs.lolcat}/bin/lolcat
                   echo "It uses Rust ${version}, includes NodeJS and Tailwind LSPs, and the WASM target." | ${pkgs.lolcat}/bin/lolcat
